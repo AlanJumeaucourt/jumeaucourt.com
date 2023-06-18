@@ -1,7 +1,7 @@
 ---
 layout: home
+title: Bienvenue sur mon site personnel !
 ---
-
 ## À propos de moi
 
 Je m'appelle Alan Jumeaucourt et je suis un expert intégrateur de solutions VOIP chez Wisper. Basé à Lyon, en Auvergne-Rhône-Alpes, France, je suis actuellement en alternance chez Wisper où je travaille sur le logiciel open source XiVo. En parallèle, je poursuis mes études d'ingénieur en Télécommunications à l'INSA de Lyon.
