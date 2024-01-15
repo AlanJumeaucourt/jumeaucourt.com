@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mon experience à Wisper"
+title:  "Mon experience à Avencall"
 date:   2023-06-20 18:16:17 +0100
 categories: jekyll update
 ---
@@ -9,7 +9,7 @@ categories: jekyll update
 ## Expert intégrateur solution VOIP
 ### septembre 2022 - Présent
 
-En tant qu'expert intégrateur de solutions VOIP chez Wisper, je suis responsable de la qualification, de l'analyse des besoins et des usages des clients, ainsi que de la proposition de solutions techniques et fonctionnelles. Mes principales responsabilités comprennent :
+En tant qu'expert intégrateur de solutions VOIP chez Avencall, je suis responsable de la qualification, de l'analyse des besoins et des usages des clients, ainsi que de la proposition de solutions techniques et fonctionnelles. Mes principales responsabilités comprennent :
 
 - Rédaction des documents de spécifications, d'exploitations fonctionnelles et techniques.
 - Accompagnement, conseil et transfert de compétences vers les équipes des clients et leurs utilisateurs.
@@ -26,5 +26,5 @@ Dans cet environnement, j'utilise les technologies suivantes :
 
 Je développe continuellement mes compétences en intégration de solutions VOIP et je travaille sur des projets concrets. Cette expérience me permet également d'améliorer ma capacité à communiquer efficacement avec les clients et à fournir des solutions adaptées à leurs besoins.
 
-N'hésitez pas à me contacter pour en savoir plus sur mon travail chez Wisper et les projets sur lesquels je travaille actuellement.
+N'hésitez pas à me contacter pour en savoir plus sur mon travail chez Avencall et les projets sur lesquels je travaille actuellement.
 

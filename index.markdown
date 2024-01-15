@@ -4,13 +4,13 @@ title: Bienvenue sur mon site personnel !
 ---
 ## À propos de moi
 
-Je m'appelle Alan Jumeaucourt et je suis un expert intégrateur de solutions VOIP chez Wisper. Basé à Lyon, en Auvergne-Rhône-Alpes, France, je suis actuellement en alternance chez Wisper où je travaille sur le logiciel open source XiVo. 
+Je m'appelle Alan Jumeaucourt et je suis un Expert / DevOps sur la solutions VOIP XiVO. Basé à Lyon, en Auvergne-Rhône-Alpes, France, je suis actuellement en alternance chez Avencall où je travaille sur le logiciel open source XiVo. 
 
 En parallèle, je poursuis mes études d'ingénieur en Télécommunications à l'INSA de Lyon.
 
 ## Expériences professionnelles
 
-- **WISPER** - Expert intégrateur de solutions VOIP (septembre 2022 - présent)
+- **Avencall / XiVO** - Expert DevOps de solutions VOIP (septembre 2022 - présent)
 - **EDF** - Chargé d'affaires et d'exploitation télécoms (septembre 2020 - août 2022)
 - **Évreux Portes de Normandie** - Stagiaire en informatique (novembre 2019)
 - **EET Service** - Stagiaire en téléphonie (IP) (avril 2019 - mai 2019)
