@@ -1,0 +1,65 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-gray-900/80 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
+    }`}>
+      <nav className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          <a href="#" className="text-xl font-bold text-blue-400">AJ</a>
+          
+          <div className="hidden md:flex space-x-8">
+            {['experience', 'skills', 'education', 'contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            ))}
+          </div>
+
+          <button 
+            className="md:hidden text-gray-300 hover:text-blue-400"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+            <div className="flex flex-col space-y-4 p-4">
+              {['experience', 'skills', 'education', 'contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
