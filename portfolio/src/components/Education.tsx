@@ -13,6 +13,11 @@ const Education = () => {
       current: true
     },
     {
+      school: 'Vilnius Tech',
+      degree: 'Exchange Student for 1 semester',
+      period: '2024 - 2024'
+    },
+    {
       school: 'Université de Rouen Normandie',
       degree: 'DUT Networks and Telecommunications',
       period: '2020 - 2022'
