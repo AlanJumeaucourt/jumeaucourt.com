@@ -16,16 +16,14 @@ const calculateAge = (birthDate: Date): number => {
 };
 
 const Hero = () => {
-  const { ref, isInView } = useInView();
-
   return (
-    <section ref={ref} className={`pt-32 pb-16 relative section-fade ${isInView ? 'in-view' : ''}`}>
+    <section className="min-h-screen flex items-center justify-center -mt-16">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 flex justify-center space-x-4">
           <Server className="w-12 h-12 text-blue-400 animate-float" style={{ animationDelay: '0.2s' }} />
           <Terminal className="w-12 h-12 text-blue-400 animate-float" />
         </div>
-        <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+        <h1 className="text-5xl font-bold mb-6 bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
           Alan Jumeaucourt
         </h1>
         <h2 className="text-2xl text-gray-300 mb-8">

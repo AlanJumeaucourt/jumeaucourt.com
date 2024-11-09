@@ -13,7 +13,7 @@ function App() {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.1),transparent_50%)] pointer-events-none" />
       <Header />
-      <main className="container mx-auto px-4 py-8 space-y-20 relative">
+      <main className="container mx-auto px-4 py-8 space-y-12 relative">
         <Hero />
         <Projects />
         <TravelMap />
