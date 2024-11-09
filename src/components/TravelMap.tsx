@@ -253,9 +253,8 @@ const TravelMap = () => {
     controls.minDistance = 200;
     controls.maxDistance = 200;
     
-    globeRef.current.pointOfView({ lat: 48.8566, lng: 2.3522, altitude: 2.5 });
-  }, []); // Empty dependency array since we only want to initialize once
-
+    globeRef.current.pointOfView({ lat: 44.711629, lng: 75.530159, altitude: 2.5 });
+  }, []); 
   // Memoize the color callback with hexagon-level check
   const hexPolygonColor = React.useCallback((hexagon: any) => {
     try {
