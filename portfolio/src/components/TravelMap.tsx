@@ -337,7 +337,7 @@ const TravelMap = () => {
         <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
           My Journey Around the Globe
         </h2>
-        <div className="card p-4 h-[600px] relative bg-gray-900/50">
+        <div className="card p-4 h-[600px] relative bg-gray-900/50 max-w-full overflow-hidden">
           <Globe
             ref={globeRef}
             globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
