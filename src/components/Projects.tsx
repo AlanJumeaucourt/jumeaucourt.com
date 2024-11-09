@@ -78,8 +78,8 @@ const Projects = () => {
       ],
       github: 'https://github.com/AlanJumeaucourt/SIR-Lightboard',
       image: {
-        desktop: '/images/projects/sir-lightboard/desktop.png',
-        mobile: '/images/projects/sir-lightboard/mobile.png'
+        desktop: '/images/projects/sir-lightboard/desktop.jpg',
+        mobile: '/images/projects/sir-lightboard/mobile.jpg'
       }
     },
     {
@@ -167,6 +167,9 @@ const Projects = () => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-2 sm:px-4 py-8 sm:py-16">
+        <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
+          {t('projects.title')}
+        </h2>
       <div className="flex items-center justify-between">
         <button 
           onClick={prevSlide}

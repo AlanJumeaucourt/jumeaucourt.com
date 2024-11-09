@@ -66,7 +66,7 @@ export const translations = {
     'skills.categories.leadership': 'Leadership',
 
     // Projects
-    'projects.title': 'Projects',
+    'projects.title': 'My Projects',
     'projects.technologies': 'Technologies',
     'projects.challenges': 'Challenges Solved',
     'projects.technical': 'Technical Highlights',
@@ -217,7 +217,7 @@ export const translations = {
     'skills.categories.leadership': 'Leadership',
 
     // Projects
-    'projects.title': 'Projets',
+    'projects.title': 'Mes projets',
     'projects.technologies': 'Technologies',
     'projects.challenges': 'Défis Résolus',
     'projects.technical': 'Points Techniques Clés',
