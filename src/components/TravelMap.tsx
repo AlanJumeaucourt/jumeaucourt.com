@@ -190,7 +190,7 @@ const TravelMap = () => {
   useEffect(() => {
     let mounted = true;
     
-    fetch('/src/datasets/ne_110m_admin_0_countries.geojson')
+    fetch('https://raw.githubusercontent.com/vasturiano/react-globe.gl/refs/heads/master/example/datasets/ne_110m_admin_0_countries.geojson')
       .then(res => res.json())
       .then(data => {
         if (mounted) {
