@@ -26,6 +26,24 @@ const Experience = () => {
         'Technical team coordination',
         'Project management and implementation'
       ]
+    },
+    {
+      company: 'Early Career Internships',
+      position: 'IT & Telecom Intern',
+      period: '2017 - 2019',
+      description: [
+        'Évreux Portes de Normandie - IT Systems Support (Nov 2019)',
+        'EET Service - IP Telephony Systems (Apr-May 2019)',
+        'CAF de l\'Eure - IT Infrastructure Support (Nov 2019)',
+        'Centre Hospitalier de Bernay - IT Systems Management (Jun 2018)',
+        'LBCDI - IT Support and Maintenance (Dec 2017)'
+      ],
+      subDescription: [
+        'Gained hands-on experience in various IT environments',
+        'Developed understanding of enterprise systems and networks',
+        'Worked with diverse technologies and infrastructures',
+        'Contributed to system maintenance and user support'
+      ]
     }
   ];
 
@@ -48,8 +66,19 @@ const Experience = () => {
               </div>
               <ul className="list-disc list-inside space-y-2 text-gray-300">
                 {exp.description.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i} className={exp.company === 'Early Career Internships' ? 'font-medium' : ''}>
+                    {item}
+                  </li>
                 ))}
+                {exp.subDescription && (
+                  <div className="mt-4 ml-4">
+                    {exp.subDescription.map((item, i) => (
+                      <li key={i} className="text-gray-400">
+                        {item}
+                      </li>
+                    ))}
+                  </div>
+                )}
               </ul>
             </div>
           ))}
