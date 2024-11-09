@@ -340,7 +340,13 @@ export const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  // Get browser language and set default to 'en' if not French
+  const getBrowserLanguage = (): Language => {
+    const browserLang = navigator.language.toLowerCase();
+    return browserLang.startsWith('fr') ? 'fr' : 'en';
+  };
+
+  const [language, setLanguage] = useState<Language>(getBrowserLanguage());
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations[typeof language]] || key;
