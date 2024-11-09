@@ -21,7 +21,15 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-blue-400">AJ</a>
+          <a href="#" className="text-xl font-bold text-blue-400">
+            <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out" 
+                  style={{ 
+                    width: isScrolled ? '5.5rem' : '2rem',
+                    opacity: 1 
+                  }}>
+              {isScrolled ? 'Alan J' : 'AJ'}
+            </span>
+          </a>
           
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
