@@ -24,16 +24,16 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: 'Wealth Manager',
-      description: 'A comprehensive personal finance management application built with React Native and Expo, featuring real-time wealth tracking, multi-account management, and smart analytics.',
+      description: t('projects.wealth_manager.description'),
       technologies: ['React Native', 'Expo', 'Flask', 'SQLite', 'TypeScript', 'Raw SQL query'],
       technicalHighlights: [
-        'Implemented real-time data synchronization using Plaid API',
-        'Designed scalable SQLite database schema for financial data',
-        'Built custom database with views and triggers'
+        t('projects.wealth_manager.technical.1'),
+        t('projects.wealth_manager.technical.2'),
+        t('projects.wealth_manager.technical.3')
       ],
       challenges: [
-        'Managing financial data in a mobile environment',
-        'Secure data handling for sensitive financial information'
+        t('projects.wealth_manager.challenges.1'),
+        t('projects.wealth_manager.challenges.2')
       ],
       github: 'https://github.com/AlanJumeaucourt/wealth_manager',
       image: {
@@ -43,17 +43,17 @@ const Projects = () => {
     },
     {
       title: 'Hit or Flop',
-      description: 'AI model using convolutional neural networks to predict if a song has the characteristics of a hit. Built with Python and Next.js, deployed with Docker.',
+      description: t('projects.hit_or_flop.description'),
       technologies: ['Python', 'Next.js', 'Docker', 'CNN', 'AI'],
       technicalHighlights: [
-        'Developed custom CNN architecture for audio processing',
-        'Analyzed audio features for hit/flop prediction',
-        'Created containerized deployment pipeline',
-        'Made a website to showcase the model'
+        t('projects.hit_or_flop.technical.1'),
+        t('projects.hit_or_flop.technical.2'),
+        t('projects.hit_or_flop.technical.3'),
+        t('projects.hit_or_flop.technical.4')
       ],
       challenges: [
-        'Processing audio datasets efficiently',
-        'Optimizing model accuracy while maintaining performance'
+        t('projects.hit_or_flop.challenges.1'),
+        t('projects.hit_or_flop.challenges.2')
       ],
       github: 'https://github.com/AlanJumeaucourt/hitorflop',
       live: 'https://hitorflop.myfunnycluster.dynamic-dns.net/',
@@ -64,17 +64,17 @@ const Projects = () => {
     },
     {
       title: 'SIR-Lightboard',
-      description: 'Automation solution for recording and uploading educational content. Features OBS integration, file transfer automation, and custom Debian live CD for Lightboard teaching.',
+      description: t('projects.sirlightboard.description'),
       technologies: ['Python', 'Bash', 'OBS', 'Debian'],
       technicalHighlights: [
-        'Integrated OBS on linux ',
-        'Automated file transfer using Bash scripts',
-        'Created custom Debian live CD for efficient teaching'
+        t('projects.sirlightboard.technical.1'),
+        t('projects.sirlightboard.technical.2'),
+        t('projects.sirlightboard.technical.3')
       ],
       challenges: [
-        'Optimizing live CD performance and boot time',
-        'Make everything work on a live CD (not so easy)',
-        'Implementing state machine for the control commands'
+        t('projects.sirlightboard.challenges.1'),
+        t('projects.sirlightboard.challenges.2'),
+        t('projects.sirlightboard.challenges.3')
       ],
       github: 'https://github.com/AlanJumeaucourt/SIR-Lightboard',
       image: {
@@ -84,15 +84,15 @@ const Projects = () => {
     },
     {
       title: 'NAS Project',
-      description: 'Python-based automation tool for provisioning MPLS/VPN network infrastructure. Configures Cisco routers based on JSON configuration files.',
+      description: t('projects.nas_project.description'),
       technologies: ['Python', 'Cisco', 'Networking', 'MPLS', 'BGP'],
       technicalHighlights: [
-        'Automated provisioning of MPLS/VPN network infrastructure',
-        'Configured Cisco routers using abstracted JSON configuration files'
+        t('projects.nas_project.technical.1'),
+        t('projects.nas_project.technical.2')
       ],
       challenges: [
-        'Ensuring idempotent configuration management',
-        'Handling network state consistency across devices'
+        t('projects.nas_project.challenges.1'),
+        t('projects.nas_project.challenges.2')
       ],
       github: 'https://github.com/AlanJumeaucourt/NasProject',
       image: {
@@ -102,16 +102,16 @@ const Projects = () => {
     },
     {
       title: 'This Website',
-      description: 'This website is built with React, Tailwind CSS, and Lucide Icons.',
+      description: t('projects.this_website.description'),
       technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'TypeScript'],
       technicalHighlights: [
-        'Built with React and TypeScript',
-        'Styled using Tailwind CSS',
-        'Implemented internationalization support'
+        t('projects.this_website.technical.1'),
+        t('projects.this_website.technical.2'),
+        t('projects.this_website.technical.3')
       ],
       challenges: [
-        'Creating a responsive and accessible design',
-        'Managing state and translations efficiently'
+        t('projects.this_website.challenges.1'),
+        t('projects.this_website.challenges.2')
       ],
       github: 'https://github.com/AlanJumeaucourt/portfolio',
       image: {
@@ -121,14 +121,16 @@ const Projects = () => {
     },
     {
       title: 'Pasta tower',
-      description: 'A simple tower of pasta and scotch tape.',
+      description: t('projects.pasta_tower.description'),
       technologies: ['Pasta', 'Scotch tape'],
       technicalHighlights: [
-        'Built a tower of pasta and scotch tape',
-        'It was taller than me (no)',
-        'Make good initation and planning phase'
+        t('projects.pasta_tower.technical.1'),
+        t('projects.pasta_tower.technical.2'),
+        t('projects.pasta_tower.technical.3')
       ],
-      challenges: ['Dont play with pasta while making the planning phase'],
+      challenges: [
+        t('projects.pasta_tower.challenges.1')
+      ],
       github: 'https://github.com/AlanJumeaucourt/pasta-tower',
       image: {
         desktop: '/images/projects/pasta-tower/desktop.png',
