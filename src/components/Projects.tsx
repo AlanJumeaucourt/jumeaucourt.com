@@ -155,21 +155,21 @@ const Projects = () => {
   };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-4 py-16">
+    <div className="relative w-full max-w-6xl mx-auto px-2 sm:px-4 py-8 sm:py-16">
       <div className="flex items-center justify-between">
         <button 
           onClick={prevSlide}
-          className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+          className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
           aria-label={t('projects.navigation.prev.aria')}
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
 
-        <div className="flex-1 mx-8">
+        <div className="flex-1 mx-2 sm:mx-8">
           <div className="bg-gray-800 rounded-lg overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 h-[600px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[600px]">
               {/* Image Section */}
-              <div className="relative h-64 md:h-full">
+              <div className="relative h-48 sm:h-64 md:h-full">
                 <img
                   src={currentProject.image}
                   alt={currentProject.title}
@@ -178,22 +178,22 @@ const Projects = () => {
               </div>
 
               {/* Content Section */}
-              <div className="p-6 flex flex-col h-full overflow-y-auto">
-                <h3 className="text-2xl font-bold mb-2">
+              <div className="p-4 sm:p-6 flex flex-col h-full overflow-y-auto">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">
                   {t(`projects.${getTranslationKey(currentProject.title)}.title`)}
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-sm sm:text-base text-gray-300 mb-4">
                   {t(`projects.${getTranslationKey(currentProject.title)}.description`)}
                 </p>
 
                 {/* Technical Details */}
                 {currentProject.technicalHighlights && (
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Code2 className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                      <h4 className="font-semibold">{t('projects.section.technicalHighlights')}</h4>
+                  <div className="mb-3 sm:mb-4">
+                    <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                      <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
+                      <h4 className="font-semibold text-sm sm:text-base">{t('projects.section.technicalHighlights')}</h4>
                     </div>
-                    <ul className="list-disc list-inside text-sm text-gray-300 ml-2">
+                    <ul className="list-disc list-inside text-xs sm:text-sm text-gray-300 ml-2">
                       {currentProject.technicalHighlights.map((highlight, index) => (
                         <li key={index}>
                           {t(`projects.${getTranslationKey(currentProject.title)}.technical.${index + 1}`)}
@@ -205,12 +205,12 @@ const Projects = () => {
 
                 {/* Challenges */}
                 {currentProject.challenges && (
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Wrench className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                      <h4 className="font-semibold">{t('projects.section.challenges')}</h4>
+                  <div className="mb-3 sm:mb-4">
+                    <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                      <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
+                      <h4 className="font-semibold text-sm sm:text-base">{t('projects.section.challenges')}</h4>
                     </div>
-                    <ul className="list-disc list-inside text-sm text-gray-300 ml-2">
+                    <ul className="list-disc list-inside text-xs sm:text-sm text-gray-300 ml-2">
                       {currentProject.challenges.map((challenge, index) => (
                         <li key={index}>
                           {t(`projects.${getTranslationKey(currentProject.title)}.challenges.${index + 1}`)}
@@ -221,16 +221,16 @@ const Projects = () => {
                 )}
 
                 {/* Technologies */}
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Cpu className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                    <h4 className="font-semibold">{t('projects.section.technologies')}</h4>
+                <div className="mb-3 sm:mb-4">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                    <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
+                    <h4 className="font-semibold text-sm sm:text-base">{t('projects.section.technologies')}</h4>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
                     {currentProject.technologies.map((tech, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-1 bg-gray-700 rounded-full text-sm"
+                        className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gray-700 rounded-full text-xs sm:text-sm"
                       >
                         {tech}
                       </span>
@@ -239,14 +239,14 @@ const Projects = () => {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4 mt-auto">
+                <div className="flex gap-3 sm:gap-4 mt-auto">
                   <a
                     href={currentProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+                    className="flex items-center gap-1 sm:gap-2 hover:text-blue-400 transition-colors text-sm sm:text-base"
                   >
-                    <Github className="w-5 h-5" />
+                    <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                     {t('projects.links.github')}
                   </a>
                   {currentProject.live && (
@@ -254,9 +254,9 @@ const Projects = () => {
                       href={currentProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+                      className="flex items-center gap-1 sm:gap-2 hover:text-blue-400 transition-colors text-sm sm:text-base"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                       {t('projects.links.liveDemo')}
                     </a>
                   )}
@@ -268,14 +268,14 @@ const Projects = () => {
 
         <button 
           onClick={nextSlide}
-          className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+          className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
           aria-label={t('projects.navigation.next.aria')}
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
       </div>
 
-      <div className="flex justify-center mt-4 gap-2" role="tablist" aria-label={t('projects.navigation.projectList')}>
+      <div className="flex justify-center mt-2 sm:mt-4 gap-1 sm:gap-2" role="tablist" aria-label={t('projects.navigation.projectList')}>
         {projects.map((project, index) => (
           <button
             key={index}
