@@ -2,6 +2,19 @@ import React from 'react';
 import { Server, Terminal } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
+
+const calculateAge = (birthDate: Date): number => {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  
+  return age;
+};
+
 const Hero = () => {
   const { ref, isInView } = useInView();
 
@@ -19,7 +32,7 @@ const Hero = () => {
           DevOps Engineer & VOIP Expert
         </h2>
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          Passionate about building robust infrastructure and streamlining communications through innovative VOIP solutions. Based in Lyon, France.
+          {calculateAge(new Date('2002-06-08'))} y.o. passionate about building robust infrastructure and streamlining communications through innovative VOIP solutions. Based in Lyon, France.
         </p>
         <div className="flex justify-center space-x-4">
           <a 
