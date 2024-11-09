@@ -84,8 +84,6 @@ export const translations = {
     'projects.website.description': 'This website is built with React, Tailwind CSS, and Lucide Icons.',
     'projects.pastaTower.title': 'Pasta tower',
     'projects.pastaTower.description': 'A tower of pasta and scotch tape during a project management course.',
-    'projects.xivo.title': 'XiVO Automation Framework',
-    'projects.xivo.description': 'Independently conceived and developed an automation framework to streamline XiVO deployment processes, significantly reducing deployment time and human error.',
 
     // Travel
     'travel.title': 'My Journey Around the Globe',
@@ -138,16 +136,6 @@ export const translations = {
     'projects.pasta_tower.technical.2': 'It was taller than me (no)',
     'projects.pasta_tower.technical.3': 'Make good initation and planning phase',
     'projects.pasta_tower.challenges.1': 'Dont play with pasta while making the planning phase',
-
-    'projects.xivo_automation_framework.title': 'XiVO Automation Framework',
-    'projects.xivo_automation_framework.description': 'Independently conceived and developed an automation framework to streamline XiVO deployment processes, significantly reducing deployment time and human error.',
-    'projects.xivo_automation_framework.technical.1': 'Proactively identified deployment bottlenecks',
-    'projects.xivo_automation_framework.technical.2': 'Designed and implemented automated testing suite',
-    'projects.xivo_automation_framework.technical.3': 'Created comprehensive documentation system',
-    'projects.xivo_automation_framework.technical.4': 'Reduced deployment time by 60%',
-    'projects.xivo_automation_framework.challenges.1': 'Autonomously architected solution from ground up',
-    'projects.xivo_automation_framework.challenges.2': 'Proposed and implemented innovative testing approaches',
-    'projects.xivo_automation_framework.challenges.3': 'Led adoption across development team',
 
     // Add translations for NAS project
     'projects.nas_project.title': 'NAS Project',
@@ -247,8 +235,6 @@ export const translations = {
     'projects.website.description': 'Ce site web est construit avec React, Tailwind CSS et Lucide Icons.',
     'projects.pastaTower.title': 'Tour de Pâtes',
     'projects.pastaTower.description': 'Une tour de pâtes et de ruban adhésif pendant un cours de gestion de projet.',
-    'projects.xivo.title': 'Framework d\'Automatisation XiVO',
-    'projects.xivo.description': 'Conception et développement indépendant d\'un framework d\'automatisation pour rationaliser les processus de déploiement XiVO, réduisant significativement le temps de déploiement et les erreurs humaines.',
 
     // Travel
     'travel.title': 'Mon Voyage Autour du Globe',
@@ -301,16 +287,6 @@ export const translations = {
     'projects.pasta_tower.technical.2': 'Elle était plus grande que moi (non)',
     'projects.pasta_tower.technical.3': 'Réalisation d\'une bonne phase d\'initiation et de planification',
     'projects.pasta_tower.challenges.1': 'Ne pas jouer avec les pâtes pendant la phase de planification',
-
-    'projects.xivo_automation_framework.title': 'Framework d\'Automatisation XiVO',
-    'projects.xivo_automation_framework.description': 'Conception et développement indépendant d\'un framework d\'automatisation pour rationaliser les processus de déploiement XiVO, réduisant significativement le temps de déploiement et les erreurs humaines.',
-    'projects.xivo_automation_framework.technical.1': 'Identification proactive des goulots d\'étranglement du déploiement',
-    'projects.xivo_automation_framework.technical.2': 'Conception et implémentation d\'une suite de tests automatisés',
-    'projects.xivo_automation_framework.technical.3': 'Création d\'un système de documentation complet',
-    'projects.xivo_automation_framework.technical.4': 'Réduction du temps de déploiement de 60%',
-    'projects.xivo_automation_framework.challenges.1': 'Architecture autonome de la solution depuis le début',
-    'projects.xivo_automation_framework.challenges.2': 'Proposition et implémentation d\'approches de test innovantes',
-    'projects.xivo_automation_framework.challenges.3': 'Direction de l\'adoption par l\'équipe de développement',
 
     // Add translations for NAS project
     'projects.nas_project.title': 'Projet NAS',
