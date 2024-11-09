@@ -16,10 +16,12 @@ const Header = () => {
   const menuItems = ['projects', 'travels', 'experience', 'skills', 'education', 'contact'];
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-gray-900/80 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
+    <header className={`fixed w-full z-50 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[1px] ${
+      isScrolled 
+        ? 'bg-gray-900/80 backdrop-blur-sm before:bg-gray-800/50' 
+        : 'bg-transparent before:bg-transparent'
     }`}>
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex justify-between items-center">
           <a href="#" className="text-xl font-bold text-blue-400">
             <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out" 
