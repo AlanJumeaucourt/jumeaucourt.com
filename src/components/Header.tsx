@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,16 +35,35 @@ const Header = () => {
             </span>
           </a>
           
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 items-center">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {t(`nav.${item}`)}
               </a>
             ))}
+            
+            <div className="flex space-x-2">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-1 rounded ${
+                  language === 'en' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage('fr')}
+                className={`px-2 py-1 rounded ${
+                  language === 'fr' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                }`}
+              >
+                FR
+              </button>
+            </div>
           </div>
 
           <button 
@@ -63,9 +84,27 @@ const Header = () => {
                   className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  {t(`nav.${item}`)}
                 </a>
               ))}
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 rounded ${
+                    language === 'en' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage('fr')}
+                  className={`px-2 py-1 rounded ${
+                    language === 'fr' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                  }`}
+                >
+                  FR
+                </button>
+              </div>
             </div>
           </div>
         )}

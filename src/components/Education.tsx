@@ -1,30 +1,31 @@
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Education = () => {
   const { ref, isInView } = useInView();
-  
+  const { t } = useLanguage();
   const education = [
     {
       school: 'INSA Lyon',
-      degree: 'Engineering Degree in Telecommunications',
+      degree: t('education.degrees.insa'),
       period: '2022 - 2025',
       current: true
     },
     {
       school: 'Vilnius Tech',
-      degree: 'Exchange Student for 1 semester',
+      degree: t('education.degrees.vilnius'),
       period: '2024 - 2024'
     },
     {
       school: 'Université de Rouen Normandie',
-      degree: 'DUT Networks and Telecommunications',
+      degree: t('education.degrees.rouen'),
       period: '2020 - 2022'
     },
     {
       school: 'Lycée Louis Modeste Leroy',
-      degree: 'Bac Pro Digital Systems',
+      degree: t('education.degrees.leroy'),
       period: '2017 - 2020'
     }
   ];
@@ -32,7 +33,9 @@ const Education = () => {
   return (
     <section id="education" ref={ref} className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}>
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">Education</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
+          {t('education.title')}
+        </h2>
         <div className="space-y-8">
           {education.map((edu, index) => (
             <div 
@@ -54,7 +57,7 @@ const Education = () => {
                       <span className="text-gray-400">{edu.period}</span>
                       {edu.current && (
                         <span className="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-400/10 text-blue-400">
-                          Current
+                          {t('education.current')}
                         </span>
                       )}
                     </div>

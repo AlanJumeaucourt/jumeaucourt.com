@@ -3,6 +3,8 @@ import Globe from 'react-globe.gl';
 import { useInView } from '../hooks/useInView';
 import { centroid, distance } from '@turf/turf';
 import * as turf from '@turf/turf';
+import { useLanguage } from '../contexts/LanguageContext';
+
 
 interface HexBinPoint {
   lat: number;
@@ -66,6 +68,7 @@ const TravelMap = () => {
   const globeRef = useRef<any>();
   const [countries, setCountries] = useState<{ features: GeoJSONFeature[] }>({ features: [] });
   const [travelMatches, setTravelMatches] = useState<Map<string, string>>(new Map());
+  const { t } = useLanguage();
 
   // Memoize travels data to prevent unnecessary recalculations
   const travels = React.useMemo<TravelLocation[]>(() => [
@@ -335,7 +338,7 @@ const TravelMap = () => {
     <section id="travels" ref={ref} className={`py-16 pb-32 section-fade ${isInView ? 'in-view' : ''}`}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
-          My Journey Around the Globe
+          {t('travel.title')}
         </h2>
         <div className="card p-4 h-[600px] relative bg-gray-900/50 max-w-full overflow-hidden">
           <Globe

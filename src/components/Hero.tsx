@@ -1,6 +1,7 @@
 import React from 'react';
 import { Server, Terminal } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../contexts/LanguageContext';
 
 
 const calculateAge = (birthDate: Date): number => {
@@ -16,6 +17,8 @@ const calculateAge = (birthDate: Date): number => {
 };
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="min-h-screen flex items-center justify-center -mt-16">
       <div className="max-w-4xl mx-auto text-center">
@@ -27,23 +30,23 @@ const Hero = () => {
           Alan Jumeaucourt
         </h1>
         <h2 className="text-2xl text-gray-300 mb-8">
-          DevOps Engineer & VOIP Expert
+          {t('hero.title')}
         </h2>
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          {calculateAge(new Date('2002-06-08'))} y.o. passionate about building robust infrastructure and streamlining communications through innovative VOIP solutions. Based in Lyon, France.
+          {calculateAge(new Date('2002-06-08'))} y.o. {t('hero.description')}
         </p>
         <div className="flex justify-center space-x-4">
           <a 
             href="#contact" 
             className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
-            Get in Touch
+            {t('hero.cta.contact')}
           </a>
           <a 
             href="#experience" 
             className="bg-gray-800 text-gray-300 hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700"
           >
-            View Experience
+            {t('hero.cta.experience')}
           </a>
         </div>
       </div>

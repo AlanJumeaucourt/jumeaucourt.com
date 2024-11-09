@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, ChevronLeft, ChevronRight, Code2, Wrench, Cpu } from 'lucide-react';
-
+import { useLanguage } from '../contexts/LanguageContext';
 interface Project {
   title: string;
   description: string;
@@ -13,6 +13,7 @@ interface Project {
 }
 
 const Projects = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   
   const projects: Project[] = [
@@ -72,8 +73,8 @@ const Projects = () => {
       description: 'Python-based automation tool for provisioning MPLS/VPN network infrastructure. Configures Cisco routers based on JSON configuration files.',
       technologies: ['Python', 'Cisco', 'Networking', 'MPLS'],
       technicalHighlights: [
-        'Automated provisioning of MPLS/VPN network infrastruct',
-        'Configured Cisco routers using abstracted JSON configuration files',
+        'Automated provisioning of MPLS/VPN network infrastructure',
+        'Configured Cisco routers using abstracted JSON configuration files'
       ],
       challenges: [
         'Ensuring idempotent configuration management',
@@ -85,7 +86,16 @@ const Projects = () => {
     {
       title: 'This Website',
       description: 'This website is built with React, Tailwind CSS, and Lucide Icons.',
-      technologies: ['React', 'Tailwind CSS', 'Lucide Icons'],
+      technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'TypeScript'],
+      technicalHighlights: [
+        'Built with React and TypeScript',
+        'Styled using Tailwind CSS',
+        'Implemented internationalization support'
+      ],
+      challenges: [
+        'Creating a responsive and accessible design',
+        'Managing state and translations efficiently'
+      ],
       github: 'https://github.com/AlanJumeaucourt/portfolio',
       image: 'https://images.unsplash.com/photo-1517604931440-a19a4bc5a37c?auto=format&fit=crop&w=1000&q=80'
     },
@@ -136,12 +146,21 @@ const Projects = () => {
 
   const currentProject = projects[currentIndex];
 
+  const getTranslationKey = (title: string): string => {
+    return title.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_]/g, '');
+  };
+
+  const getProjectName = (project: Project): string => {
+    return t(`projects.${getTranslationKey(project.title)}.title`);
+  };
+
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4 py-16">
       <div className="flex items-center justify-between">
         <button 
           onClick={prevSlide}
           className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+          aria-label={t('projects.navigation.prev.aria')}
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -160,19 +179,25 @@ const Projects = () => {
 
               {/* Content Section */}
               <div className="p-6 flex flex-col h-full overflow-y-auto">
-                <h3 className="text-2xl font-bold mb-2">{currentProject.title}</h3>
-                <p className="text-gray-300 mb-4">{currentProject.description}</p>
+                <h3 className="text-2xl font-bold mb-2">
+                  {t(`projects.${getTranslationKey(currentProject.title)}.title`)}
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  {t(`projects.${getTranslationKey(currentProject.title)}.description`)}
+                </p>
 
                 {/* Technical Details */}
                 {currentProject.technicalHighlights && (
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Code2 className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                      <h4 className="font-semibold">Technical Highlights</h4>
+                      <h4 className="font-semibold">{t('projects.section.technicalHighlights')}</h4>
                     </div>
                     <ul className="list-disc list-inside text-sm text-gray-300 ml-2">
                       {currentProject.technicalHighlights.map((highlight, index) => (
-                        <li key={index}>{highlight}</li>
+                        <li key={index}>
+                          {t(`projects.${getTranslationKey(currentProject.title)}.technical.${index + 1}`)}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -183,11 +208,13 @@ const Projects = () => {
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Wrench className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                      <h4 className="font-semibold">Challenges Solved</h4>
+                      <h4 className="font-semibold">{t('projects.section.challenges')}</h4>
                     </div>
                     <ul className="list-disc list-inside text-sm text-gray-300 ml-2">
                       {currentProject.challenges.map((challenge, index) => (
-                        <li key={index}>{challenge}</li>
+                        <li key={index}>
+                          {t(`projects.${getTranslationKey(currentProject.title)}.challenges.${index + 1}`)}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -197,7 +224,7 @@ const Projects = () => {
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Cpu className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                    <h4 className="font-semibold">Technologies</h4>
+                    <h4 className="font-semibold">{t('projects.section.technologies')}</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {currentProject.technologies.map((tech, index) => (
@@ -220,7 +247,7 @@ const Projects = () => {
                     className="flex items-center gap-2 hover:text-blue-400 transition-colors"
                   >
                     <Github className="w-5 h-5" />
-                    GitHub
+                    {t('projects.links.github')}
                   </a>
                   {currentProject.live && (
                     <a
@@ -230,7 +257,7 @@ const Projects = () => {
                       className="flex items-center gap-2 hover:text-blue-400 transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
-                      Live Demo
+                      {t('projects.links.liveDemo')}
                     </a>
                   )}
                 </div>
@@ -242,19 +269,24 @@ const Projects = () => {
         <button 
           onClick={nextSlide}
           className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+          aria-label={t('projects.navigation.next.aria')}
         >
           <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
-      <div className="flex justify-center mt-4 gap-2">
-        {projects.map((_, index) => (
+      <div className="flex justify-center mt-4 gap-2" role="tablist" aria-label={t('projects.navigation.projectList')}>
+        {projects.map((project, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex ? 'bg-blue-500' : 'bg-gray-600'
+              index === currentIndex ? 'bg-blue-500' : 'bg-gray-600 hover:bg-gray-500'
             }`}
+            role="tab"
+            aria-selected={index === currentIndex}
+            aria-label={t('projects.navigation.goToProject', { project: getProjectName(project) })}
+            title={getProjectName(project)}
           />
         ))}
       </div>

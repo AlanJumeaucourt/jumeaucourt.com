@@ -1,10 +1,11 @@
 import React from 'react';
 import { Server, Phone, Terminal, Cpu, Users } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Skills = () => {
   const { ref, isInView } = useInView();
-  
+  const { t } = useLanguage();
   const skillCategories = [
     {
       title: 'DevOps',

@@ -1,50 +1,46 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Experience = () => {
   const { ref, isInView } = useInView();
+  const { t } = useLanguage();
   
   const experiences = [
     {
       company: 'Avencall / XiVO',
-      position: 'Expert DevOps de solutions VOIP',
+      position: t('experience.positions.xivo'),
       period: '2022 - Present',
       description: [
-        'Proposed and implemented automation solutions to streamline deployment processes',
-        'Led initiative to improve documentation practices and knowledge sharing',
-        'Independently managed client projects from analysis to implementation',
-        'Proactively identified and resolved system bottlenecks',
-        'Developed innovative solutions for complex client requirements'
+        t('experience.xivo.desc1'),
+        t('experience.xivo.desc2'),
+        t('experience.xivo.desc3'),
+        t('experience.xivo.desc4'),
+        t('experience.xivo.desc5')
       ]
     },
     {
       company: 'EDF',
-      position: 'Telecom Operations Manager',
+      position: t('experience.positions.edf'),
       period: '2020 - 2022',
       description: [
-        'Initiated and led infrastructure improvement projects',
-        'Developed and implemented new monitoring solutions',
-        'Autonomously managed critical telecommunications systems',
-        'Proposed and executed system optimization strategies',
-        'Created innovative solutions for operational challenges'
+        t('experience.edf.desc1'),
+        t('experience.edf.desc2'),
+        t('experience.edf.desc3'),
+        t('experience.edf.desc4'),
+        t('experience.edf.desc5')
       ]
     },
     {
-      company: 'Early Career Internships',
-      position: 'IT & Telecom Intern',
+      company: t('experience.internships.title'),
+      position: t('experience.internships.position'),
       period: '2017 - 2019',
       description: [
-        'Évreux Portes de Normandie - IT Systems Support (Nov 2019)',
-        'EET Service - IP Telephony Systems (Apr-May 2019)',
-        'CAF de l\'Eure - IT Infrastructure Support (Nov 2019)',
-        'Centre Hospitalier de Bernay - IT Systems Management (Jun 2018)',
-        'LBCDI - IT Support and Maintenance (Dec 2017)'
-      ],
-      subDescription: [
-        'Gained hands-on experience in various IT environments',
-        'Developed understanding of enterprise systems and networks',
-        'Worked with diverse technologies and infrastructures',
-        'Contributed to system maintenance and user support'
+        t('experience.internships.desc1'),
+        t('experience.internships.desc2'),
+        t('experience.internships.desc3'),
+        t('experience.internships.desc4'),
+        t('experience.internships.desc5')
       ]
     }
   ];
@@ -52,7 +48,9 @@ const Experience = () => {
   return (
     <section id="experience" ref={ref} className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}>
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">Professional Experience</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
+          {t('experience.title')}
+        </h2>
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div 
