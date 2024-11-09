@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, ChevronLeft, ChevronRight, Code2, Wrench, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useDeviceType } from '../hooks/useDeviceType';
 interface Project {
   title: string;
   description: string;
@@ -9,12 +10,16 @@ interface Project {
   challenges?: string[];
   github: string;
   live?: string;
-  image: string;
+  image: {
+    desktop: string;
+    mobile: string;
+  };
 }
 
 const Projects = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const deviceType = useDeviceType();
   
   const projects: Project[] = [
     {
@@ -31,7 +36,10 @@ const Projects = () => {
         'Secure data handling for sensitive financial information'
       ],
       github: 'https://github.com/AlanJumeaucourt/wealth_manager',
-      image: 'https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/wealth-manager/desktop.png',
+        mobile: '/images/projects/wealth-manager/mobile.png'
+      }
     },
     {
       title: 'Hit or Flop',
@@ -49,7 +57,10 @@ const Projects = () => {
       ],
       github: 'https://github.com/AlanJumeaucourt/hitorflop',
       live: 'https://hitorflop.myfunnycluster.dynamic-dns.net/',
-      image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/hit-or-flop/desktop.png',
+        mobile: '/images/projects/hit-or-flop/mobile.png'
+      }
     },
     {
       title: 'SIR-Lightboard',
@@ -66,12 +77,15 @@ const Projects = () => {
         'Implementing state machine for the control commands'
       ],
       github: 'https://github.com/AlanJumeaucourt/SIR-Lightboard',
-      image: 'https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/sir-lightboard/desktop.png',
+        mobile: '/images/projects/sir-lightboard/mobile.png'
+      }
     },
     {
       title: 'NAS Project',
       description: 'Python-based automation tool for provisioning MPLS/VPN network infrastructure. Configures Cisco routers based on JSON configuration files.',
-      technologies: ['Python', 'Cisco', 'Networking', 'MPLS'],
+      technologies: ['Python', 'Cisco', 'Networking', 'MPLS', 'BGP'],
       technicalHighlights: [
         'Automated provisioning of MPLS/VPN network infrastructure',
         'Configured Cisco routers using abstracted JSON configuration files'
@@ -81,7 +95,10 @@ const Projects = () => {
         'Handling network state consistency across devices'
       ],
       github: 'https://github.com/AlanJumeaucourt/NasProject',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/nas-project/desktop.png',
+        mobile: '/images/projects/nas-project/mobile.png'
+      }
     },
     {
       title: 'This Website',
@@ -97,11 +114,14 @@ const Projects = () => {
         'Managing state and translations efficiently'
       ],
       github: 'https://github.com/AlanJumeaucourt/portfolio',
-      image: 'https://images.unsplash.com/photo-1517604931440-a19a4bc5a37c?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/portfolio/desktop.png',
+        mobile: '/images/projects/portfolio/mobile.png'
+      }
     },
     {
       title: 'Pasta tower',
-      description: 'A tower of pasta and scotch tape during a project management course.',
+      description: 'A simple tower of pasta and scotch tape.',
       technologies: ['Pasta', 'Scotch tape'],
       technicalHighlights: [
         'Built a tower of pasta and scotch tape',
@@ -110,7 +130,10 @@ const Projects = () => {
       ],
       challenges: ['Dont play with pasta while making the planning phase'],
       github: 'https://github.com/AlanJumeaucourt/pasta-tower',
-      image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=80'
+      image: {
+        desktop: '/images/projects/pasta-tower/desktop.png',
+        mobile: '/images/projects/pasta-tower/mobile.png'
+      }
     },
   ];
 
@@ -136,6 +159,10 @@ const Projects = () => {
     return t(`projects.${getTranslationKey(project.title)}.title`);
   };
 
+  const getImageForDevice = (project: Project) => {
+    return deviceType === 'mobile' ? project.image.mobile : project.image.desktop;
+  };
+
   return (
     <div className="relative w-full max-w-6xl mx-auto px-2 sm:px-4 py-8 sm:py-16">
       <div className="flex items-center justify-between">
@@ -149,13 +176,14 @@ const Projects = () => {
 
         <div className="flex-1 mx-2 sm:mx-8">
           <div className="bg-gray-800 rounded-lg overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[600px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[700px]">
               {/* Image Section */}
-              <div className="relative h-48 sm:h-64 md:h-full">
+              <div className="relative h-48 sm:h-64 md:h-full w-full">
                 <img
-                  src={currentProject.image}
+                  src={getImageForDevice(currentProject)}
                   alt={currentProject.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
                 />
               </div>
 
@@ -267,7 +295,7 @@ const Projects = () => {
             }`}
             role="tab"
             aria-selected={index === currentIndex}
-            aria-label={t('projects.navigation.goToProject', { project: getProjectName(project) })}
+            aria-label={`${t('projects.navigation.goToProject')} ${getProjectName(project)}`}
             title={getProjectName(project)}
           />
         ))}
