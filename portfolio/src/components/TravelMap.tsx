@@ -332,7 +332,7 @@ const TravelMap = () => {
   }, [travels]);
 
   return (
-    <section id="travels" ref={ref} className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}>
+    <section id="travels" ref={ref} className={`py-16 pb-32 section-fade ${isInView ? 'in-view' : ''}`}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">
           My Journey Around the Globe
