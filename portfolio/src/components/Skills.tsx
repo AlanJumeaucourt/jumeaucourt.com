@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, Phone, Terminal, Cpu } from 'lucide-react';
+import { Server, Phone, Terminal, Cpu, Users } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const Skills = () => {
@@ -25,6 +25,17 @@ const Skills = () => {
       title: 'Systems',
       icon: <Cpu className="w-8 h-8 text-blue-400" />,
       skills: ['System Architecture', 'Monitoring', 'Troubleshooting', 'Performance Optimization']
+    },
+    {
+      title: 'Leadership',
+      icon: <Users className="w-8 h-8 text-blue-400" />,
+      skills: [
+        'Project Initiative',
+        'Autonomous Problem Solving',
+        'Strategic Planning',
+        'Innovation Leadership',
+        'Process Optimization'
+      ]
     }
   ];
 

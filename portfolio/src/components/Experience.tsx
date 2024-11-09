@@ -10,10 +10,11 @@ const Experience = () => {
       position: 'Expert DevOps de solutions VOIP',
       period: '2022 - Present',
       description: [
-        'Integration and deployment of XiVO solutions',
-        'Client needs analysis and qualification',
-        'Technical documentation and training',
-        'Solution administration and updates'
+        'Proposed and implemented automation solutions to streamline deployment processes',
+        'Led initiative to improve documentation practices and knowledge sharing',
+        'Independently managed client projects from analysis to implementation',
+        'Proactively identified and resolved system bottlenecks',
+        'Developed innovative solutions for complex client requirements'
       ]
     },
     {
@@ -21,10 +22,11 @@ const Experience = () => {
       position: 'Telecom Operations Manager',
       period: '2020 - 2022',
       description: [
-        'Voice Data Image systems management',
-        'Telecommunication infrastructure administration',
-        'Technical team coordination',
-        'Project management and implementation'
+        'Initiated and led infrastructure improvement projects',
+        'Developed and implemented new monitoring solutions',
+        'Autonomously managed critical telecommunications systems',
+        'Proposed and executed system optimization strategies',
+        'Created innovative solutions for operational challenges'
       ]
     },
     {

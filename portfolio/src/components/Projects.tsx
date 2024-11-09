@@ -101,6 +101,24 @@ const Projects = () => {
       challenges: ['Dont play with pasta while making the planning phase'],
       github: 'https://github.com/AlanJumeaucourt/pasta-tower',
       image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'XiVO Automation Framework',
+      description: 'Independently conceived and developed an automation framework to streamline XiVO deployment processes, significantly reducing deployment time and human error.',
+      technologies: ['Python', 'Ansible', 'Docker', 'CI/CD'],
+      technicalHighlights: [
+        'Proactively identified deployment bottlenecks',
+        'Designed and implemented automated testing suite',
+        'Created comprehensive documentation system',
+        'Reduced deployment time by 60%'
+      ],
+      challenges: [
+        'Autonomously architected solution from ground up',
+        'Proposed and implemented innovative testing approaches',
+        'Led adoption across development team'
+      ],
+      github: 'https://github.com/YourUsername/xivo-automation',
+      image: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1000&q=80'
     }
   ];
 
