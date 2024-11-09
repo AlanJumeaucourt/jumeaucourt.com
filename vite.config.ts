@@ -15,7 +15,4 @@ export default defineConfig({
       '@public': path.resolve(__dirname, './public')
     }
   },
-  build: {
-    outDir: 'public',
-}
 })
