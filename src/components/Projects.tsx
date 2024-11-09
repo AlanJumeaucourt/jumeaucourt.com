@@ -44,7 +44,7 @@ const Projects = () => {
     {
       title: 'Hit or Flop',
       description: t('projects.hit_or_flop.description'),
-      technologies: ['Python', 'Next.js', 'Docker', 'CNN', 'AI'],
+      technologies: ['Python', 'React', 'TypeScript', 'Tailwind CSS', 'Docker', 'CNN', 'AI', 'TensorFlow'],
       technicalHighlights: [
         t('projects.hit_or_flop.technical.1'),
         t('projects.hit_or_flop.technical.2'),
@@ -65,7 +65,7 @@ const Projects = () => {
     {
       title: 'SIR-Lightboard',
       description: t('projects.sirlightboard.description'),
-      technologies: ['Python', 'Bash', 'OBS', 'Debian'],
+      technologies: ['Python', 'Bash', 'OBS', 'Debian', 'SSH'],
       technicalHighlights: [
         t('projects.sirlightboard.technical.1'),
         t('projects.sirlightboard.technical.2'),
@@ -85,7 +85,7 @@ const Projects = () => {
     {
       title: 'NAS Project',
       description: t('projects.nas_project.description'),
-      technologies: ['Python', 'Cisco', 'Networking', 'MPLS', 'BGP'],
+      technologies: ['Python', 'Cisco', 'Networking', 'MPLS', 'BGP', 'VPN'],
       technicalHighlights: [
         t('projects.nas_project.technical.1'),
         t('projects.nas_project.technical.2')
@@ -103,7 +103,7 @@ const Projects = () => {
     {
       title: 'This Website',
       description: t('projects.this_website.description'),
-      technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'TypeScript'],
+      technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'TypeScript', 'Vite'],
       technicalHighlights: [
         t('projects.this_website.technical.1'),
         t('projects.this_website.technical.2'),
