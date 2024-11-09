@@ -13,6 +13,8 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const menuItems = ['projects', 'travels', 'experience', 'skills', 'education', 'contact'];
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-gray-900/80 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
@@ -22,7 +24,7 @@ const Header = () => {
           <a href="#" className="text-xl font-bold text-blue-400">AJ</a>
           
           <div className="hidden md:flex space-x-8">
-            {['experience', 'skills', 'education', 'contact'].map((item) => (
+            {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -44,7 +46,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
             <div className="flex flex-col space-y-4 p-4">
-              {['experience', 'skills', 'education', 'contact'].map((item) => (
+              {menuItems.map((item) => (
                 <a
                   key={item}
                   href={`#${item}`}
