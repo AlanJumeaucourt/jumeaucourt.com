@@ -131,8 +131,8 @@ export const translations = {
 
     // Add missing project translations
     'projects.pasta_tower.title': 'Pasta Tower',
-    'projects.pasta_tower.description': 'A tower of pasta and scotch tape during a project management course.',
-    'projects.pasta_tower.technical.1': 'Built a tower of pasta and scotch tape',
+    'projects.pasta_tower.description': 'Just a tower made of pasta and scotch tape during a project management course.',
+    'projects.pasta_tower.technical.1': 'Built a tower of pasta and scotch tape \"WoW\"',
     'projects.pasta_tower.technical.2': 'It was taller than me (no)',
     'projects.pasta_tower.technical.3': 'Make good initation and planning phase',
     'projects.pasta_tower.challenges.1': 'Dont play with pasta while making the planning phase',
@@ -343,4 +343,4 @@ export const useLanguage = () => {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
-}; 
+};
