@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Github, ExternalLink, ChevronLeft, ChevronRight, Code2, Wrench, Cpu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Code2, Cpu, ExternalLink, Github, Wrench } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useDeviceType } from '../hooks/useDeviceType';
 interface Project {
@@ -20,7 +20,7 @@ const Projects = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const deviceType = useDeviceType();
-  
+
   const projects: Project[] = [
     {
       title: 'Wealth Manager',
@@ -139,14 +139,41 @@ const Projects = () => {
     },
   ];
 
+  const preloadImage = (src: string) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+  };
+
+  useEffect(() => {
+    const preloadAdjacentImages = async () => {
+      const nextIndex = (currentIndex + 1) % projects.length;
+      const prevIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
+
+      const imagesToPreload = [
+        projects[nextIndex].image.desktop,
+        projects[nextIndex].image.mobile,
+        projects[prevIndex].image.desktop,
+        projects[prevIndex].image.mobile,
+      ];
+
+      await Promise.all(imagesToPreload.map(src => preloadImage(src)));
+    };
+
+    preloadAdjacentImages();
+  }, [currentIndex]);
+
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? projects.length - 1 : prevIndex - 1
     );
   };
@@ -171,7 +198,7 @@ const Projects = () => {
           {t('projects.title')}
         </h2>
       <div className="flex items-center justify-between">
-        <button 
+        <button
           onClick={prevSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
           aria-label={t('projects.navigation.prev.aria')}
@@ -243,7 +270,7 @@ const Projects = () => {
                   </div>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
                     {currentProject.technologies.map((tech, index) => (
-                      <span 
+                      <span
                         key={index}
                         className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gray-700 rounded-full text-xs sm:text-sm"
                       >
@@ -281,7 +308,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <button 
+        <button
           onClick={nextSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
           aria-label={t('projects.navigation.next.aria')}
