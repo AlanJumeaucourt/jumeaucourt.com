@@ -1,16 +1,14 @@
-import React from 'react';
+import Contact from './components/Contact';
+import Timeline from './components/Experience';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Skills from './components/Skills';
 import TravelMap from './components/TravelMap';
-import Education from './components/Education';
-import Contact from './components/Contact';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
-  
+
   return (
     <LanguageProvider>
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -20,9 +18,8 @@ function App() {
           <Hero />
           <Projects />
           <TravelMap />
-          <Experience />
+          <Timeline />
           <Skills />
-          <Education />
           <Contact />
         </main>
         <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800 text-gray-400 py-8">

@@ -5,8 +5,31 @@ import { useInView } from '../hooks/useInView';
 
 const Contact = () => {
   const { ref, isInView } = useInView();
-  const { t } = useLanguage();
+  const { language } = useLanguage();
   const [loading, setLoading] = useState<string | null>(null);
+
+  const translations = {
+    en: {
+      title: 'Get in Touch',
+      description: 'Looking for a DevOps expert or need help with VOIP solutions? Let\'s connect and discuss how I can help you achieve your goals.',
+      cta: 'Send me an email',
+      links: {
+        github: 'GitHub',
+        linkedin: 'LinkedIn',
+        email: 'Email'
+      }
+    },
+    fr: {
+      title: 'Me Contacter',
+      description: 'Vous recherchez un expert DevOps ou avez besoin d\'aide avec des solutions VOIP ? Connectons-nous et discutons de la façon dont je peux vous aider à atteindre vos objectifs.',
+      cta: 'M\'envoyer un email',
+      links: {
+        github: 'GitHub',
+        linkedin: 'LinkedIn',
+        email: 'Email'
+      }
+    }
+  };
 
   const handleLinkClick = async (type: string) => {
     setLoading(type);
@@ -20,26 +43,28 @@ const Contact = () => {
       type: 'github',
       href: 'https://github.com/AlanJumeaucourt',
       icon: <Github className="w-6 h-6" />,
-      label: t('contact.links.github')
+      label: translations[language].links.github
     },
     {
       type: 'linkedin',
       href: 'https://www.linkedin.com/in/alan-jumeaucourt',
       icon: <Linkedin className="w-6 h-6" />,
-      label: t('contact.links.linkedin')
+      label: translations[language].links.linkedin
     },
     {
       type: 'email',
       href: 'mailto:fromblog@mail.jumeaucourt.com',
       icon: <Mail className="w-6 h-6" />,
-      label: t('contact.links.email')
+      label: translations[language].links.email
     }
   ];
 
   return (
     <section id="contact" ref={ref} className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}>
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12 text-blue-400">{t('contact.title')}</h2>
+        <h2 className="text-3xl font-bold mb-12 text-blue-400">
+          {translations[language].title}
+        </h2>
         <div className="flex flex-wrap justify-center gap-8 mb-12">
           {socialLinks.map(({ type, href, icon, label }) => (
             <a
@@ -67,13 +92,13 @@ const Contact = () => {
         </div>
         <div className="card p-8 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 bg-gradient-to-br from-gray-800 to-gray-900">
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            {t('contact.description')}
+            {translations[language].description}
           </p>
           <a
             href="mailto:fromblog@mail.jumeaucourt.com"
             className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900"
           >
-            {t('contact.cta')}
+            {translations[language].cta}
           </a>
         </div>
       </div>

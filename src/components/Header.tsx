@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,26 +15,45 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = ['projects', 'travels', 'experience', 'skills', 'education', 'contact'];
+  const translations = {
+    en: {
+      projects: 'Projects',
+      travels: 'Travels',
+      experience: 'Experience',
+      skills: 'Skills',
+      education: 'Education',
+      contact: 'Contact'
+    },
+    fr: {
+      projects: 'Projets',
+      travels: 'Voyages',
+      experience: 'Expérience',
+      skills: 'Compétences',
+      education: 'Éducation',
+      contact: 'Contact'
+    }
+  };
+
+  const menuItems = ['projects', 'travels', 'experience', 'skills', 'education', 'contact'] as const;
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[1px] ${
-      isScrolled 
-        ? 'bg-gray-900/80 backdrop-blur-sm before:bg-gray-800/50' 
+      isScrolled
+        ? 'bg-gray-900/80 backdrop-blur-sm before:bg-gray-800/50'
         : 'bg-transparent before:bg-transparent'
     }`}>
       <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex justify-between items-center">
           <a href="#" className="text-xl font-bold text-blue-400">
-            <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out" 
-                  style={{ 
+            <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out"
+                  style={{
                     width: isScrolled ? '5.5rem' : '2rem',
-                    opacity: 1 
+                    opacity: 1
                   }}>
               {isScrolled ? 'Alan J' : 'AJ'}
             </span>
           </a>
-          
+
           <div className="hidden md:flex space-x-8 items-center">
             {menuItems.map((item) => (
               <a
@@ -42,10 +61,10 @@ const Header = () => {
                 href={`#${item}`}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
               >
-                {t(`nav.${item}`)}
+                {translations[language][item]}
               </a>
             ))}
-            
+
             <div className="flex space-x-2">
               <button
                 onClick={() => setLanguage('en')}
@@ -66,7 +85,7 @@ const Header = () => {
             </div>
           </div>
 
-          <button 
+          <button
             className="md:hidden text-gray-300 hover:text-blue-400"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -84,7 +103,7 @@ const Header = () => {
                   className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t(`nav.${item}`)}
+                  {translations[language][item]}
                 </a>
               ))}
               <div className="flex space-x-2">
