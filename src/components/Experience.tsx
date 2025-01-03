@@ -21,7 +21,7 @@ interface TimelineItem {
   details: string[];
   icon: React.ComponentType<any>;
   color: string;
-  current?: boolean;
+  current: boolean;
 }
 
 // Define the TimelineData interface
@@ -40,7 +40,7 @@ const Timeline = () => {
       experience: 'Experience',
       education: 'Education',
       internship: 'Internship',
-      apprenticeship: 'apprenticeship',
+      apprenticeship: 'Apprenticeship',
       current: 'Current'
     },
     fr: {
@@ -71,21 +71,6 @@ const Timeline = () => {
         current: true
       },
       {
-        type: 'education',
-        year: '2024 (Fall Semester)',
-        title: 'Erasmus Exchange Semester',
-        organization: 'Vilnius Tech, Lithuania',
-        details: [
-          'Courses on IoT (Internet of Things)',
-          'Cloud Computing',
-          'Databases',
-          'Software Engineering',
-          'Project Management'
-        ],
-        icon: School,
-        color: 'purple'
-      },
-      {
         type: 'apprenticeship',
         year: '2022 - Now (sept 2025)',
         title: 'DevOps & VOIP Solutions Expert',
@@ -103,6 +88,22 @@ const Timeline = () => {
       },
       {
         type: 'education',
+        year: '2024 (Fall Semester)',
+        title: 'Erasmus Exchange Semester',
+        organization: 'Vilnius Tech, Lithuania',
+        details: [
+          'Courses on IoT (Internet of Things)',
+          'Cloud Computing',
+          'Databases',
+          'Software Engineering',
+          'Project Management'
+        ],
+        icon: School,
+        color: 'purple',
+        current: false
+      },
+      {
+        type: 'education',
         year: '2020 - 2022',
         title: 'DUT Networks and Telecommunications',
         organization: 'Université de Rouen Normandie',
@@ -112,7 +113,8 @@ const Timeline = () => {
           "Technical foundation"
         ],
         icon: School,
-        color: 'purple'
+        color: 'purple',
+        current: false
       },
       {
         type: 'apprenticeship',
@@ -141,7 +143,8 @@ const Timeline = () => {
           "Technical training"
         ],
         icon: School,
-        color: 'orange'
+        color: 'orange',
+        current: false
       },
       {
         type: 'internship',
@@ -205,7 +208,8 @@ const Timeline = () => {
           'Gestion de projets'
         ],
         icon: School,
-        color: 'purple'
+        color: 'purple',
+        current: false
       },
       {
         type: 'education',
@@ -218,7 +222,8 @@ const Timeline = () => {
           "Formation technique"
         ],
         icon: School,
-        color: 'purple'
+        color: 'purple',
+        current: false
       },
       {
         type: 'apprenticeship',
@@ -247,7 +252,8 @@ const Timeline = () => {
           "Formation technique"
         ],
         icon: School,
-        color: 'orange'
+        color: 'orange',
+        current: false
       },
       {
         type: 'internship',
@@ -268,11 +274,6 @@ const Timeline = () => {
     ]
   };
 
-  const timelineItems: TimelineItem[] = timelineData[language].map((item, index) => ({
-    ...item,
-    current: item.year.includes('Aujourd\'hui') || item.year.includes('Présent'),
-  }));
-
   return (
     <section
       id="timeline"
@@ -288,7 +289,7 @@ const Timeline = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30" />
 
           <div className="space-y-8">
-            {timelineItems.map((item, index) => (
+            {timelineData[language].map((item, index) => (
               <div
                 key={index}
                 className={`relative flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}
@@ -296,7 +297,7 @@ const Timeline = () => {
               >
                 {/* Timeline dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-400 z-10">
-                <div className="absolute w-8 h-8 rounded-full bg-blue-400/20 -left-2 -top-2 animate-ping-slow" />
+                  <div className="absolute w-8 h-8 rounded-full bg-blue-400/20 -left-2 -top-2 animate-ping-slow" />
                 </div>
 
                 {/* Content */}
@@ -322,7 +323,8 @@ const Timeline = () => {
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-600/20 text-green-600">
                               {translations[language].apprenticeship}
                             </span>
-                          )}                        </div>
+                          )}
+                        </div>
                         <div className="mt-4 text-sm text-gray-300">
                           <ul className="list-disc list-inside">
                             {item.details.map((detail, i) => (

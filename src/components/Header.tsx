@@ -45,12 +45,12 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex justify-between items-center">
           <a href="#" className="text-xl font-bold text-blue-400">
-            <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out"
+          <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-1000 ease-in-out"
                   style={{
-                    width: isScrolled ? '5.5rem' : '2rem',
+                    width: isScrolled ? '11rem' : '2rem',
                     opacity: 1
                   }}>
-              {isScrolled ? 'Alan J' : 'AJ'}
+              {isScrolled ? 'Alan Jumeaucourt' : 'AJ'}
             </span>
           </a>
 
