@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Globe, { GlobeInstance } from 'react-globe.gl';
+import { useLanguage } from '../contexts/LanguageContext';
+
+// Define the Translation interface
+interface Translation {
+  title: string;
+}
 
 interface City {
   city: string;
@@ -33,8 +39,18 @@ const cityList: City[] = [
 ];
 
 const TravelMap = () => {
+  const { language } = useLanguage();
   const globeRef = useRef<GlobeInstance | null>(null);
   const [countries, setCountries] = useState<any[]>([]);
+
+  const translations: { [key: string]: Translation } = {
+    en: {
+      title: 'My journey',
+    },
+    fr: {
+      title: 'Mes voyages',
+    }
+  };
 
   // Group cities by country
   const visitedCountries = React.useMemo(() => {
@@ -84,21 +100,26 @@ const TravelMap = () => {
   }, [visitedCountries]);
 
   return (
-    <div className="card p-4 h-[600px] relative bg-gray-900/50 max-w-full overflow-hidden">
-      <Globe
-        ref={globeRef}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-        backgroundColor="rgba(0,0,0,0)"
-        atmosphereColor="#38bdf8"
-        atmosphereAltitude={0.15}
-        hexPolygonsData={countries}
-        hexPolygonResolution={3}
-        hexPolygonMargin={0.3}
-        hexPolygonUseDots={false}
-        hexPolygonColor={hexPolygonColor}
-        hexPolygonAltitude={hexPolygonAltitude}
-        hexPolygonLabel={hexPolygonLabel}
-      />
+    <div>
+      <h2 className="text-4xl font-bold mb-12 text-center text-blue-400">
+        {translations[language].title}
+      </h2>
+      <div className="card p-4 h-[600px] relative bg-gray-900/50 max-w-full overflow-hidden" onWheel={(e) => e.preventDefault()} onTouchMove={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()}>
+        <Globe
+          ref={globeRef}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+          backgroundColor="rgba(0,0,0,0)"
+          atmosphereColor="#38bdf8"
+          atmosphereAltitude={0.15}
+          hexPolygonsData={countries}
+          hexPolygonResolution={3}
+          hexPolygonMargin={0.3}
+          hexPolygonUseDots={false}
+          hexPolygonColor={hexPolygonColor}
+          hexPolygonAltitude={hexPolygonAltitude}
+          hexPolygonLabel={hexPolygonLabel}
+        />
+      </div>
     </div>
   );
 };
