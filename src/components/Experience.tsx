@@ -56,21 +56,6 @@ const Timeline = () => {
   const timelineData: TimelineData = {
     en: [
       {
-        type: 'education',
-        year: '2022 - Now (sept 2025)',
-        title: 'Engineering Degree in Telecommunications',
-        organization: 'INSA Lyon',
-        details: [
-          "Advanced telecommunications",
-          "Network infrastructure",
-          "Systems engineering",
-          "Project management"
-        ],
-        icon: GraduationCap,
-        color: 'blue',
-        current: true
-      },
-      {
         type: 'apprenticeship',
         year: '2022 - Now (sept 2025)',
         title: 'DevOps & VOIP Solutions Expert',
@@ -84,6 +69,21 @@ const Timeline = () => {
         ],
         icon: Briefcase,
         color: 'green',
+        current: true
+      },
+      {
+        type: 'education',
+        year: '2022 - Now (sept 2025)',
+        title: 'Engineering Degree in Telecommunications',
+        organization: 'INSA Lyon',
+        details: [
+          "Advanced telecommunications",
+          "Network infrastructure",
+          "Systems engineering",
+          "Project management"
+        ],
+        icon: GraduationCap,
+        color: 'blue',
         current: true
       },
       {
@@ -212,6 +212,22 @@ const Timeline = () => {
         current: false
       },
       {
+        type: 'apprenticeship',
+        year: '2020 - 2022',
+        title: 'Responsable des Opérations Télécom',
+        organization: 'EDF - UNITEP',
+        details: [
+          'Initié et dirigé des projets d\'amélioration de l\'infrastructure',
+          'Développé et mis en œuvre de nouvelles solutions de surveillance',
+          'Gestion autonome des systèmes télécoms critiques',
+          'Proposition et exécution de stratégies d\'optimisation des systèmes',
+          'Création de solutions innovantes pour les défis opérationnels'
+        ],
+        icon: Briefcase,
+        color: 'green',
+        current: false
+      },
+      {
         type: 'education',
         year: '2020 - 2022',
         title: 'DUT Réseaux et Télécommunications',
@@ -226,16 +242,16 @@ const Timeline = () => {
         current: false
       },
       {
-        type: 'apprenticeship',
-        year: '2020 - 2022',
-        title: 'Responsable des Opérations Télécom',
-        organization: 'EDF - UNITEP',
+        type: 'internship',
+        year: '2017 - 2020',
+        title: 'Stagiaire en IT et Télécom',
+        organization: 'Diverses Organisations',
         details: [
-          'Initié et dirigé des projets d\'amélioration de l\'infrastructure',
-          'Développé et mis en œuvre de nouvelles solutions de surveillance',
-          'Gestion autonome des systèmes télécoms critiques',
-          'Proposition et exécution de stratégies d\'optimisation des systèmes',
-          'Création de solutions innovantes pour les défis opérationnels'
+          'Évreux Portes de Normandie - Support des Systèmes IT (Nov 2019)',
+          'EET Service - Systèmes de Téléphonie IP (Avr-Mai 2019)',
+          'CAF de l\'Eure - Support de l\'Infrastructures IT (Nov 2019)',
+          'Centre Hospitalier de Bernay - Gestion des Systèmes IT (Juin 2018)',
+          'LBCDI - Support et Maintenance IT (Déc 2017)'
         ],
         icon: Briefcase,
         color: 'green',
@@ -255,22 +271,6 @@ const Timeline = () => {
         color: 'orange',
         current: false
       },
-      {
-        type: 'internship',
-        year: '2017 - 2020',
-        title: 'Stagiaire en IT et Télécom',
-        organization: 'Diverses Organisations',
-        details: [
-          'Évreux Portes de Normandie - Support des Systèmes IT (Nov 2019)',
-          'EET Service - Systèmes de Téléphonie IP (Avr-Mai 2019)',
-          'CAF de l\'Eure - Support de l\'Infrastructures IT (Nov 2019)',
-          'Centre Hospitalier de Bernay - Gestion des Systèmes IT (Juin 2018)',
-          'LBCDI - Support et Maintenance IT (Déc 2017)'
-        ],
-        icon: Briefcase,
-        color: 'green',
-        current: false
-      }
     ]
   };
 
