@@ -355,6 +355,17 @@ const Projects = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const debounce = (func: Function, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    return (...args: any[]) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const debouncedNextSlide = debounce(nextSlide, 150);
+  const debouncedPrevSlide = debounce(prevSlide, 150);
+
   return (
     <div
       className="relative w-full max-w-6xl mx-auto px-2 sm:px-4 py-8 sm:py-16"
@@ -366,7 +377,7 @@ const Projects = () => {
       </h2>
       <div className="flex items-center justify-between">
         <button
-          onClick={prevSlide}
+          onClick={debouncedPrevSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label={translations[language].navigation.prev}
         >
@@ -375,7 +386,7 @@ const Projects = () => {
 
         <div className="flex-1 mx-2 sm:mx-8">
           <div
-            className="bg-gray-800 rounded-lg overflow-hidden"
+            className="bg-gray-800 rounded-lg overflow-hidden border border-white/10"
             role="tabpanel"
             aria-label={currentProject.title}
           >
@@ -384,7 +395,7 @@ const Projects = () => {
               <div className="relative h-48 sm:h-64 md:h-full w-full">
                 <img
                   src={getImageForDevice(currentProject)}
-                  alt={currentProject.title}
+                  alt={`Screenshot of ${currentProject.title} project`}
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                 />
@@ -482,7 +493,7 @@ const Projects = () => {
         </div>
 
         <button
-          onClick={nextSlide}
+          onClick={debouncedNextSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label={translations[language].navigation.next}
         >
