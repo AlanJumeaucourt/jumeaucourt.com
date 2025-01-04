@@ -36,7 +36,7 @@ const Timeline = () => {
 
   const translations: { [key: string]: Translation } = {
     en: {
-      title: 'My Journey',
+      title: 'Experience',
       experience: 'Experience',
       education: 'Education',
       internship: 'Internship',
