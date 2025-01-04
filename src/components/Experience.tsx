@@ -286,7 +286,7 @@ const Timeline = () => {
         </h2>
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30" />
+          <div className="max-md:hidden absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30" />
 
           <div className="space-y-8">
             {timelineData[language].map((item, index) => (
@@ -296,12 +296,12 @@ const Timeline = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-400 z-10">
+                <div className="max-md:hidden absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-400 z-10">
                   <div className="absolute w-8 h-8 rounded-full bg-blue-400/20 -left-2 -top-2 animate-ping-slow" />
                 </div>
 
                 {/* Content */}
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                   <div className="card p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/10">
                     <div className="flex items-start gap-4">
                       <div className="flex-1">
