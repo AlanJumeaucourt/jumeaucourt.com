@@ -386,7 +386,7 @@ const Projects = () => {
                   src={getImageForDevice(currentProject)}
                   alt={currentProject.title}
                   className="w-full h-full object-cover object-center"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
 
