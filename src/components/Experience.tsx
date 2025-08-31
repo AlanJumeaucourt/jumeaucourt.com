@@ -276,7 +276,7 @@ const Timeline = () => {
 
   return (
     <section
-      id="timeline"
+      id="experience"
       ref={ref}
       className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}
     >
@@ -285,6 +285,8 @@ const Timeline = () => {
           {translations[language].title}
         </h2>
         <div className="relative">
+          {/* Education anchor for navigation */}
+          <div id="education" className="absolute -top-20" />
           {/* Timeline line */}
           <div className="max-md:hidden absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30" />
 

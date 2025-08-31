@@ -3,6 +3,7 @@ import Timeline from './components/Experience';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import ScrollToTop from './components/ScrollToTop';
 import Skills from './components/Skills';
 import TravelMap from './components/TravelMap';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -27,6 +28,7 @@ function App() {
             <p>© {new Date().getFullYear()} Alan Jumeaucourt. Made with ❤️ and probably too much coffee.</p>
           </div>
         </footer>
+        <ScrollToTop />
       </div>
     </LanguageProvider>
   );

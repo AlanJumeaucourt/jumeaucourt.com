@@ -367,7 +367,8 @@ const Projects = () => {
   const debouncedPrevSlide = debounce(prevSlide, 150);
 
   return (
-    <div
+    <section
+      id="projects"
       className="relative w-full max-w-6xl mx-auto px-2 sm:px-4 py-8 sm:py-16"
       role="region"
       aria-label={translations[language].title}
@@ -520,7 +521,7 @@ const Projects = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

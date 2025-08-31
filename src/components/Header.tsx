@@ -19,22 +19,20 @@ const Header = () => {
     en: {
       projects: 'Projects',
       travels: 'Travels',
-      experience: 'Experience',
+      experience: 'Experience & Education',
       skills: 'Skills',
-      education: 'Education',
       contact: 'Contact'
     },
     fr: {
       projects: 'Projets',
       travels: 'Voyages',
-      experience: 'Expérience',
+      experience: 'Expérience & Éducation',
       skills: 'Compétences',
-      education: 'Éducation',
       contact: 'Contact'
     }
   };
 
-  const menuItems = ['projects', 'travels', 'experience', 'skills', 'education', 'contact'] as const;
+  const menuItems = ['projects', 'travels', 'experience', 'skills', 'contact'] as const;
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[1px] ${
