@@ -13,7 +13,7 @@ const Skills = () => {
 
   const translations = {
     en: {
-      title: 'Technical Skills',
+      title: 'What I\'m Good At',
       categories: {
         devops: {
           title: 'DevOps',
@@ -67,7 +67,7 @@ const Skills = () => {
       }
     },
     fr: {
-      title: 'Compétences Techniques',
+      title: 'Ce Que Je Sais Faire',
       categories: {
         devops: {
           title: 'DevOps',

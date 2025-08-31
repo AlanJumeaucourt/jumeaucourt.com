@@ -36,7 +36,7 @@ const Timeline = () => {
 
   const translations: { [key: string]: Translation } = {
     en: {
-      title: 'Experience',
+      title: 'My Journey So Far',
       experience: 'Experience',
       education: 'Education',
       internship: 'Internship',
@@ -44,7 +44,7 @@ const Timeline = () => {
       current: 'Current'
     },
     fr: {
-      title: 'Mon Parcours',
+      title: 'Mon Parcours Jusqu\'ici',
       experience: 'Expérience',
       education: 'Formation',
       internship: 'Stage',
@@ -92,7 +92,7 @@ const Timeline = () => {
         title: 'Erasmus Exchange Semester',
         organization: 'Vilnius Tech, Lithuania',
         details: [
-          'Courses on IoT (Internet of Things)',
+          'IoT (Internet of Things)',
           'Cloud Computing',
           'Databases',
           'Software Engineering',
@@ -201,7 +201,7 @@ const Timeline = () => {
         title: 'Semestre d\'échange Erasmus',
         organization: 'Vilnius Tech, Lituanie',
         details: [
-          'Cours sur le IoT (Internet des Objets)',
+          'IoT (Internet of Things)',
           'Cloud Computing',
           'Bases de données',
           'Ingénierie logicielle',

@@ -10,9 +10,9 @@ const Contact = () => {
 
   const translations = {
     en: {
-      title: 'Get in Touch',
-      description: 'Looking for a DevOps expert or need help with VOIP solutions? Let\'s connect and discuss how I can help you achieve your goals.',
-      cta: 'Send me an email',
+      title: 'Let\'s Connect!',
+      description: 'Want to chat about tech, travel, or just say hi? I\'m always up for a good conversation. Drop me a line!',
+      cta: 'Say Hello!',
       links: {
         github: 'GitHub',
         linkedin: 'LinkedIn',
@@ -20,9 +20,9 @@ const Contact = () => {
       }
     },
     fr: {
-      title: 'Me Contacter',
-      description: 'Vous recherchez un expert DevOps ou avez besoin d\'aide avec des solutions VOIP ? Connectons-nous et discutons de la façon dont je peux vous aider à atteindre vos objectifs.',
-      cta: 'M\'envoyer un email',
+      title: 'Connectons-nous !',
+      description: 'Envie de discuter tech, voyage, ou juste dire bonjour ? Je suis toujours partant pour une bonne conversation. Envoie-moi un message !',
+      cta: 'Dire Bonjour !',
       links: {
         github: 'GitHub',
         linkedin: 'LinkedIn',

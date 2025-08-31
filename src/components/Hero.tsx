@@ -19,18 +19,18 @@ const Hero = () => {
   const translations = {
     en: {
       title: 'DevOps Engineer & VOIP Expert',
-      description: 'passionate about building robust infrastructure and streamlining communications through innovative VOIP solutions. Based in Lyon, France.',
+      description: 'I turn coffee into code and make servers do what they\'re told. Based in Lyon, France, but my code runs everywhere.',
       cta: {
-        contact: 'Get in Touch',
-        experience: 'View Experience'
+        contact: 'Let\'s Chat!',
+        experience: 'See What I\'ve Done'
       }
     },
     fr: {
       title: 'Ingénieur DevOps & Expert VOIP',
-      description: 'passionné par la création d\'infrastructures robustes et l\'optimisation des communications via des solutions VOIP innovantes. Basé à Lyon, France.',
+      description: 'Je transforme le café en code et je fais faire aux serveurs ce qu\'on leur dit. Basé à Lyon, France, mais mon code tourne partout.',
       cta: {
-        contact: 'Me Contacter',
-        experience: 'Voir l\'Expérience'
+        contact: 'On Discute !',
+        experience: 'Voir Ce Que J\'ai Fait'
       }
     }
   };

@@ -24,7 +24,7 @@ const Projects = () => {
 
   const translations = {
     en: {
-      title: 'My Projects',
+      title: 'Stuff I\'ve Built',
       section: {
         technicalHighlights: 'Technical Highlights',
         challenges: 'Challenges Solved',
@@ -96,7 +96,7 @@ const Projects = () => {
         },
         this_website: {
           title: 'This Website',
-          description: 'This website is built with React, Tailwind CSS, and Lucide Icons.',
+          description: 'The very website you\'re looking at right now! Built with React, Tailwind CSS, and probably too much coffee.',
           technical: [
             'Built with React and TypeScript',
             'Styled using Tailwind CSS',
@@ -108,8 +108,8 @@ const Projects = () => {
           ]
         },
         pasta_tower: {
-          title: 'Pasta tower',
-          description: 'A tower of pasta and scotch tape during a project management course.',
+          title: 'The Great Pasta Tower',
+          description: 'My masterpiece: a tower of pasta and scotch tape during a project management course. Engineering at its finest!',
           technical: [
             'Built a tower of pasta and scotch tape "WoW"',
             'It was taller than me (no)',
@@ -122,7 +122,7 @@ const Projects = () => {
       }
     },
     fr: {
-      title: 'Mes Projets',
+      title: 'Ce Que J\'ai Créé',
       section: {
         technicalHighlights: 'Points Techniques',
         challenges: 'Défis Résolus',
