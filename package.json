@@ -10,11 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@turf/turf": "^7.1.0",
+    "@turf/turf": "^7.2.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-globe.gl": "^2.27.4",
     "react-intersection-observer": "^9.14.1"
   },
   "devDependencies": {
