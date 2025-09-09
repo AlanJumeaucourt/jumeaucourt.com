@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Code2, Cpu, ExternalLink, Github, Wrench } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useDeviceType } from '../hooks/useDeviceType';
 
@@ -20,6 +20,7 @@ interface Project {
 const Projects = () => {
   const { language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const deviceType = useDeviceType();
 
   const translations = {
@@ -109,14 +110,18 @@ const Projects = () => {
         },
         pasta_tower: {
           title: 'The Great Pasta Tower',
-          description: 'My masterpiece: a tower of pasta and scotch tape during a project management course. Engineering at its finest!',
+          description: 'My magnum opus: a towering testament to human ingenuity, built entirely from pasta and the sheer power of determination (and lots of scotch tape). This architectural marvel was born during a project management course where I decided to prove that anything is possible with enough carbs and sticky tape!',
           technical: [
-            'Built a tower of pasta and scotch tape "WoW"',
-            'It was taller than me (no)',
-            'Make good initation and planning phase'
+            'Mastered the ancient art of pasta-based construction',
+            'Pioneered revolutionary scotch tape application techniques',
+            'Achieved the impossible: made dry pasta hold its own weight (sort of)',
+            'Implemented advanced "pray and hope" structural engineering'
           ],
           challenges: [
-            'Dont play with pasta while making the planning phase'
+            'Fighting the constant temptation to snack on the building materials',
+            'Explaining to confused classmates why I was building a pasta skyscraper',
+            'Keeping the tower standing long enough for the professor to see it',
+            'Resisting the urge to add marinara sauce for "structural reinforcement"'
           ]
         }
       }
@@ -206,15 +211,19 @@ const Projects = () => {
           ]
         },
         pasta_tower: {
-          title: 'Tour de Pâtes',
-          description: 'Une tour de pâtes et de ruban adhésif pendant un cours de gestion de projet.',
+          title: 'La Grande Tour de Pâtes',
+          description: 'Mon chef-d\'œuvre absolu : un monument à l\'ingéniosité humaine, construit entièrement avec des pâtes et la puissance pure de la détermination (et beaucoup de ruban adhésif). Cette merveille architecturale est née pendant un cours de gestion de projet où j\'ai décidé de prouver que tout est possible avec assez de glucides et de ruban collant !',
           technical: [
-            'Construction d\'une tour en pâtes et ruban adhésif',
-            'Elle était plus grande que moi (non)',
-            'Réalisation d\'une bonne phase d\'initiation et de planification'
+            'Maîtrisé l\'art ancestral de la construction à base de pâtes',
+            'Pionnier des techniques révolutionnaires d\'application de ruban adhésif',
+            'Réalisé l\'impossible : faire tenir des pâtes sèches sous leur propre poids (enfin, presque)',
+            'Implémenté l\'ingénierie structurelle avancée "prier et espérer"'
           ],
           challenges: [
-            'Ne pas jouer avec les pâtes pendant la phase de planification'
+            'Lutter contre la tentation constante de grignoter les matériaux de construction',
+            'Expliquer à des camarades confus pourquoi je construisais un gratte-ciel de pâtes',
+            'Garder la tour debout assez longtemps pour que le professeur puisse la voir',
+            'Résister à l\'envie d\'ajouter de la sauce tomate pour le "renforcement structurel"'
           ]
         }
       }
@@ -310,23 +319,21 @@ const Projects = () => {
     });
   };
 
+  // Preload all images on component mount for instant navigation
   useEffect(() => {
-    const preloadAdjacentImages = async () => {
-      const nextIndex = (currentIndex + 1) % projects.length;
-      const prevIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
+    const preloadAllImages = async () => {
+      const allImages = projects.flatMap(project => [
+        project.image.desktop,
+        project.image.mobile
+      ]);
 
-      const imagesToPreload = [
-        projects[nextIndex].image.desktop,
-        projects[nextIndex].image.mobile,
-        projects[prevIndex].image.desktop,
-        projects[prevIndex].image.mobile,
-      ];
-
-      await Promise.all(imagesToPreload.map(src => preloadImage(src)));
+      // Preload all images in parallel
+      await Promise.all(allImages.map(src => preloadImage(src)));
+      setImagesLoaded(true);
     };
 
-    preloadAdjacentImages();
-  }, [currentIndex]);
+    preloadAllImages();
+  }, []); // Only run once on mount
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -340,7 +347,7 @@ const Projects = () => {
     );
   };
 
-  const currentProject = projects[currentIndex];
+  const currentProject = useMemo(() => projects[currentIndex], [currentIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -355,16 +362,7 @@ const Projects = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const debounce = (func: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return (...args: any[]) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => func(...args), delay);
-    };
-  };
-
-  const debouncedNextSlide = debounce(nextSlide, 150);
-  const debouncedPrevSlide = debounce(prevSlide, 150);
+  // No need for debouncing since all images are preloaded
 
   return (
     <section
@@ -378,7 +376,7 @@ const Projects = () => {
       </h2>
       <div className="flex items-center justify-between">
         <button
-          onClick={debouncedPrevSlide}
+          onClick={prevSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label={translations[language].navigation.prev}
         >
@@ -394,11 +392,20 @@ const Projects = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[700px]">
               {/* Image Section */}
               <div className="relative h-48 sm:h-64 md:h-full w-full">
+                {!imagesLoaded && (
+                  <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
+                    <div className="text-gray-400 text-sm">Loading images...</div>
+                  </div>
+                )}
                 <img
                   src={getImageForDevice(currentProject)}
                   alt={`Screenshot of ${currentProject.title} project`}
-                  className="w-full h-full object-cover object-center"
+                  className={`w-full h-full object-cover object-center transition-opacity duration-200 ${
+                    imagesLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                   loading="eager"
+                  decoding="sync"
+                  style={{ imageRendering: 'auto' }}
                 />
               </div>
 
@@ -494,7 +501,7 @@ const Projects = () => {
         </div>
 
         <button
-          onClick={debouncedNextSlide}
+          onClick={nextSlide}
           className="p-1 sm:p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label={translations[language].navigation.next}
         >
