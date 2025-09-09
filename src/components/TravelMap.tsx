@@ -65,13 +65,10 @@ const placeList: Place[] = [
   { city: 'Split-Dalmatia County', country: 'Croatia', coordinates: [43.516350, 16.249217] },
   { city: 'Plitvice Lakes', country: 'Croatia', coordinates: [44.86269115476936, 15.599679612529776] },
   { city: 'Annecy', country: 'France', coordinates: [45.899229, 6.128803] },
-  { city: 'Malia', country: 'Greece', coordinates: [35.327750, 24.013375] },
+  { city: 'Malia', country: 'Greece', coordinates: [35.285186, 25.459889  ] },
+  { city: 'Marseille', country: 'France', coordinates: [43.296174, 5.369952] },
+  { city: 'Caen', country: 'France', coordinates: [49.180864, -0.371271] },
 ];
-
-// Remove duplicate Zadar entry and create unique place points
-const uniquePlaces = placeList.filter((place, index, self) =>
-  index === self.findIndex(p => p.city === place.city && p.country === place.country)
-);
 
 interface MapPoint {
   position: [number, number];
@@ -112,8 +109,8 @@ const TravelMap: React.FC = () => {
   const t = translations[language as keyof typeof translations];
 
   // Calculate statistics
-  const totalPlaces = uniquePlaces.length;
-  const totalCountries = new Set(uniquePlaces.map(place => place.country)).size;
+  const totalPlaces = placeList.length;
+  const totalCountries = new Set(placeList.map(place => place.country)).size;
 
   useEffect(() => {
     const initMap = async () => {
@@ -145,7 +142,7 @@ const TravelMap: React.FC = () => {
           // Wait for map to load
           map.whenReady(() => {
             // Create markers for each place
-            const markers: MapPoint[] = uniquePlaces.map(place => {
+            const markers: MapPoint[] = placeList.map(place => {
               // Create custom marker element
               const markerElement = document.createElement('div');
               markerElement.className = 'custom-marker';
