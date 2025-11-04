@@ -16,14 +16,16 @@ interface Place {
   city: string;
   country: string;
   coordinates: [number, number];
+  // optional type to differentiate marker color
+  type?: 'visit' | 'work' | 'other';
 }
 
 const placeList: Place[] = [
   { city: 'Paris', country: 'France', coordinates: [48.8566, 2.3522] },
-  { city: 'Lyon', country: 'France', coordinates: [45.7578, 4.8320] },
+  { city: 'Lyon', country: 'France', coordinates: [45.7578, 4.8320], type: 'work' },
   { city: 'Le Havre', country: 'France', coordinates: [49.4943, 0.1079] },
-  { city: 'Évreux', country: 'France', coordinates: [49.0270, 1.1508] },
-  { city: 'Rouen', country: 'France', coordinates: [49.4432, 1.0999] },
+  { city: 'Évreux', country: 'France', coordinates: [49.0270, 1.1508], type: 'work' },
+  { city: 'Rouen', country: 'France', coordinates: [49.4432, 1.0999], type: 'work' },
   { city: 'Brest', country: 'France', coordinates: [48.3904, -4.4861] },
   { city: 'Pornic', country: 'France', coordinates: [47.1128, -2.1064] },
   { city: 'Les Sables-d\'Olonne', country: 'France', coordinates: [46.4974, -1.7831] },
@@ -32,7 +34,7 @@ const placeList: Place[] = [
   { city: 'London', country: 'England', coordinates: [51.5074, -0.1278] },
   { city: 'Barcelona', country: 'Spain', coordinates: [41.3851, 2.1734] },
   { city: 'Warsaw', country: 'Poland', coordinates: [52.2297, 21.0122] },
-  { city: 'Vilnius', country: 'Lithuania', coordinates: [54.6872, 25.2797] },
+  { city: 'Vilnius', country: 'Lithuania', coordinates: [54.6872, 25.2797], type: 'work' },
   { city: 'Trakai', country: 'Lithuania', coordinates: [54.6377, 24.9326] },
   { city: 'Golem', country: 'Albania', coordinates: [41.327953, 19.819025] },
   { city: 'Phuket', country: 'Thailand', coordinates: [7.8804, 98.3923] },
@@ -68,7 +70,8 @@ const placeList: Place[] = [
   { city: 'Malia', country: 'Greece', coordinates: [35.285186, 25.459889  ] },
   { city: 'Marseille', country: 'France', coordinates: [43.296174, 5.369952] },
   { city: 'Caen', country: 'France', coordinates: [49.180864, -0.371271] },
-  { city: 'Bucharest', country: 'Romania', coordinates: [44.4268, 26.1025] },
+  { city: 'Saint-Valery-en-Caux', country: 'France', coordinates: [49.7669, 0.6123], type: 'work' },
+  { city: 'Bucharest', country: 'Romania', coordinates: [44.4268, 26.1025], type: 'work' },
   { city: 'Constanta', country: 'Romania', coordinates: [44.1598, 28.6348] },
 ];
 
@@ -85,7 +88,7 @@ const TravelMap: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersRef = useRef<MapPoint[]>([]);
-  const [mapReady, setMapReady] = useState(false);
+  // mapReady was previously unused; omit to keep lint clean
   const [hoveredPoint, setHoveredPoint] = useState<MapPoint | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -144,14 +147,22 @@ const TravelMap: React.FC = () => {
           // Wait for map to load
           map.whenReady(() => {
             // Create markers for each place
-            const markers: MapPoint[] = placeList.map(place => {
+              // color mapping by place type (customize as you like)
+              const colorMap: Record<string, string> = {
+                visit: '#3b82f6', // blue
+                work: '#10b981', // green
+                other: '#9ca3af' // gray
+              };
+
+              const markers: MapPoint[] = placeList.map(place => {
               // Create custom marker element
               const markerElement = document.createElement('div');
               markerElement.className = 'custom-marker';
+              const baseColor = colorMap[place.type ?? 'visit'] || colorMap.visit;
               markerElement.style.cssText = `
                 width: 16px;
                 height: 16px;
-                background-color: #3b82f6;
+                background-color: ${baseColor};
                 border: 2px solid #ffffff;
                 border-radius: 50%;
                 cursor: pointer;
@@ -193,6 +204,7 @@ const TravelMap: React.FC = () => {
 
               marker.on('mouseover', () => {
                 setHoveredPoint({ position: place.coordinates, city: place.city, country: place.country, marker });
+                // enlarge and highlight on hover
                 markerElement.style.cssText = `
                   width: 24px;
                   height: 24px;
@@ -207,10 +219,11 @@ const TravelMap: React.FC = () => {
 
               marker.on('mouseout', () => {
                 setHoveredPoint(null);
+                // restore original size and color (based on type)
                 markerElement.style.cssText = `
                   width: 16px;
                   height: 16px;
-                  background-color: #3b82f6;
+                  background-color: ${baseColor};
                   border: 2px solid #ffffff;
                   border-radius: 50%;
                   cursor: pointer;
@@ -228,13 +241,12 @@ const TravelMap: React.FC = () => {
             });
 
             markersRef.current = markers;
-            setMapReady(true);
             setIsLoading(false);
           });
 
           // Handle map errors
-          map.on('error', (e) => {
-            console.error('Leaflet error:', e);
+          map.on('error', () => {
+            console.error('Leaflet error');
             setIsLoading(false);
           });
         }
