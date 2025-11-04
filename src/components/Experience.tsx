@@ -2,7 +2,6 @@ import { Briefcase, Globe, GraduationCap, School } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../contexts/LanguageContext';
 
-// Define the Translation interface
 interface Translation {
   title: string;
   experience: string;
@@ -12,13 +11,12 @@ interface Translation {
   current: string;
 }
 
-// Define the TimelineItem interface
 interface TimelineItem {
   type: 'experience' | 'education' | 'internship' | 'apprenticeship';
   year: string;
   title: string;
   organization: string;
-  details: string[];
+  details: (string | JSX.Element)[];
   icon: React.ComponentType<any>;
   color: string;
   current: boolean;
@@ -56,8 +54,24 @@ const Timeline = () => {
   const timelineData: TimelineData = {
     en: [
       {
+        type: 'experience',
+        year: 'Oct 2025 - Now',
+        title: 'DevOps Engineer - Cloud Modernization',
+        organization: 'Thales, based in Romania',
+        details: [
+          'Working on Thales Cloud Journey modernization teams',
+          <>Modernizing and migrating applications to <a href="https://s3ns.io" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">S3NS cloud</a> (Thales + Google GCP on-premise)</>,
+          'Implementing DevOps best practices and methodologies',
+          'Streamlining cloud deployment and migration processes',
+          'Contributing to cloud infrastructure optimization and security'
+        ],
+        icon: Briefcase,
+        color: 'green',
+        current: true
+      },
+      {
         type: 'apprenticeship',
-        year: '2022 - Now (sept 2025)',
+        year: '2022 - Sept 2025',
         title: 'DevOps & VOIP Solutions Expert',
         organization: 'XiVO - Avencall',
         details: [
@@ -69,11 +83,11 @@ const Timeline = () => {
         ],
         icon: Briefcase,
         color: 'green',
-        current: true
+        current: false
       },
       {
         type: 'education',
-        year: '2022 - Now (sept 2025)',
+        year: '2022 - sept 2025',
         title: 'Engineering Degree in Telecommunications',
         organization: 'INSA Lyon',
         details: [
@@ -84,7 +98,7 @@ const Timeline = () => {
         ],
         icon: GraduationCap,
         color: 'blue',
-        current: true
+        current: false
       },
       {
         type: 'education',
@@ -165,8 +179,24 @@ const Timeline = () => {
     ],
     fr: [
       {
+        type: 'experience',
+        year: 'Sept 2025 - Aujourd\'hui',
+        title: 'Ingénieur DevOps - Modernisation Cloud',
+        organization: 'Thales Roumanie',
+        details: [
+          'Membre des équipes de modernisation Thales Cloud Journey',
+          <>Modernisation et migration d'applications vers le <a href="https://s3ns.io" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">cloud S3NS</a> (Thales + Google GCP on-premise)</>,
+          'Mise en œuvre des meilleures pratiques DevOps',
+          'Optimisation des processus de déploiement et de migration cloud',
+          'Contribution à l\'optimisation et à la sécurité de l\'infrastructure cloud'
+        ],
+        icon: Briefcase,
+        color: 'green',
+        current: true
+      },
+      {
         type: 'education',
-        year: '2022 - Aujourd\'hui (sept 2025)',
+        year: '2022 - Sept 2025',
         title: 'Diplôme d\'Ingénieur en Télécommunications',
         organization: 'INSA Lyon',
         details: [
@@ -177,11 +207,11 @@ const Timeline = () => {
         ],
         icon: GraduationCap,
         color: 'blue',
-        current: true
+        current: false
       },
       {
         type: 'apprenticeship',
-        year: '2022 - Aujourd\'hui (sept 2025)',
+        year: '2022 - Sept 2025',
         title: 'Expert en DevOps et Solutions VOIP',
         organization: 'XiVO - Avencall',
         details: [
