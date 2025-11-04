@@ -68,6 +68,8 @@ const placeList: Place[] = [
   { city: 'Malia', country: 'Greece', coordinates: [35.285186, 25.459889  ] },
   { city: 'Marseille', country: 'France', coordinates: [43.296174, 5.369952] },
   { city: 'Caen', country: 'France', coordinates: [49.180864, -0.371271] },
+  { city: 'Bucharest', country: 'Romania', coordinates: [44.4268, 26.1025] },
+  { city: 'Constanta', country: 'Romania', coordinates: [44.1598, 28.6348] },
 ];
 
 interface MapPoint {
