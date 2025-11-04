@@ -1,6 +1,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useRef, useState } from 'react';
+
 import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -182,7 +183,7 @@ const TravelMap: React.FC = () => {
                 icon: customIcon
               }).addTo(map);
 
-              // Create popup
+              // Create popup and render a React component into it
               const popup = L.popup({
                 closeButton: true,
                 closeOnClick: false,
@@ -190,12 +191,24 @@ const TravelMap: React.FC = () => {
                 maxWidth: 300,
                 autoPan: true,
                 autoPanPadding: [50, 50]
-              }).setContent(`
-                <div class="bg-white/95 backdrop-blur-sm text-gray-800 p-3 rounded-lg border border-gray-200 shadow-xl">
+              });
+
+              // Directly create and set the popup content
+              const popupContent = document.createElement('div');
+              popupContent.innerHTML = `
+                <div class="bg-white/95 backdrop-blur-sm text-gray-800">
                   <div class="font-bold text-lg text-blue-600">${place.city}</div>
-                  <div class="text-gray-600">${place.country}</div>
+                  <div class="text-gray-600 mb-2">${place.country}</div>
+                  ${place.type ? `
+                    <div class="flex flex-col gap-1">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" style="background-color: ${colorMap[place.type]}40; color: ${colorMap[place.type]}">
+                        ${place.type}
+                      </span>
+                    </div>
+                  ` : ''}
                 </div>
-              `);
+              `;
+              popup.setContent(popupContent);
 
               // Add event listeners to the marker
               marker.on('click', () => {
