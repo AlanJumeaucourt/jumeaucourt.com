@@ -24,8 +24,12 @@ interface Place {
 const placeList: Place[] = [
   { city: 'Paris', country: 'France', coordinates: [48.8566, 2.3522] },
   { city: 'Lyon', country: 'France', coordinates: [45.7578, 4.8320], type: 'work' },
+  { city: 'Grenoble', country: 'France', coordinates: [45.199607, 5.707896]},
   { city: 'Le Havre', country: 'France', coordinates: [49.4943, 0.1079] },
   { city: 'Évreux', country: 'France', coordinates: [49.0270, 1.1508], type: 'work' },
+  { city: 'Lisieux', country: 'France', coordinates: [49.146226, 0.228201]},
+  { city: 'Bernay', country: 'France', coordinates: [49.090008, 0.596558  ]},
+  { city: 'Fecamp', country: 'France', coordinates: [49.757122, 0.376473]},
   { city: 'Rouen', country: 'France', coordinates: [49.4432, 1.0999], type: 'work' },
   { city: 'Brest', country: 'France', coordinates: [48.3904, -4.4861] },
   { city: 'Pornic', country: 'France', coordinates: [47.1128, -2.1064] },
