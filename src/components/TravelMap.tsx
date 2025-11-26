@@ -74,6 +74,7 @@ const placeList: Place[] = [
   { city: 'Saint-Valery-en-Caux', country: 'France', coordinates: [49.7669, 0.6123], type: 'work' },
   { city: 'Bucharest', country: 'Romania', coordinates: [44.4268, 26.1025], type: 'work' },
   { city: 'Constanta', country: 'Romania', coordinates: [44.1598, 28.6348] },
+  { city: 'Chisinau', country: 'Moldova', coordinates: [47.018604, 28.845536] },
 ];
 
 interface MapPoint {
