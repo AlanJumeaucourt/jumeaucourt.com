@@ -79,6 +79,7 @@ const placeList: Place[] = [
   { city: 'Bucharest', country: 'Romania', coordinates: [44.4268, 26.1025], type: 'work' },
   { city: 'Constanta', country: 'Romania', coordinates: [44.1598, 28.6348] },
   { city: 'Chisinau', country: 'Moldova', coordinates: [47.018604, 28.845536] },
+  { city: 'Tiraspol', country: 'Transnistria', coordinates: [46.841005, 29.612276] },
 ];
 
 interface MapPoint {
