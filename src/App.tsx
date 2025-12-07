@@ -4,7 +4,9 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import ScrollToTop from './components/ScrollToTop';
+import SEO from './components/SEO';
 import Skills from './components/Skills';
+import SkipLink from './components/SkipLink';
 import TravelMap from './components/TravelMap';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -12,10 +14,12 @@ function App() {
 
   return (
     <LanguageProvider>
+      <SEO />
+      <SkipLink />
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
         <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.1),transparent_50%)] pointer-events-none" />
         <Header />
-        <main className="container mx-auto px-4 py-8 space-y-4 relative">
+        <main id="main-content" className="container mx-auto px-4 py-8 space-y-4 relative">
           <Hero />
           <Projects />
           <TravelMap />

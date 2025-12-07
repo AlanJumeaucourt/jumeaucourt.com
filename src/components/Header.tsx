@@ -42,7 +42,7 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-blue-400">
+          <a href="#" className="text-xl font-bold text-blue-400" aria-label="Home">
           <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-1000 ease-in-out"
                   style={{
                     width: isScrolled ? '11rem' : '2rem',
@@ -63,12 +63,14 @@ const Header = () => {
               </a>
             ))}
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-2" role="group" aria-label="Language selector">
               <button
                 onClick={() => setLanguage('en')}
                 className={`px-2 py-1 rounded ${
                   language === 'en' ? 'bg-blue-500 text-white' : 'text-gray-300'
                 }`}
+                aria-label="Switch to English"
+                aria-pressed={language === 'en'}
               >
                 EN
               </button>
@@ -77,6 +79,8 @@ const Header = () => {
                 className={`px-2 py-1 rounded ${
                   language === 'fr' ? 'bg-blue-500 text-white' : 'text-gray-300'
                 }`}
+                aria-label="Switch to French"
+                aria-pressed={language === 'fr'}
               >
                 FR
               </button>
@@ -86,6 +90,8 @@ const Header = () => {
           <button
             className="md:hidden text-gray-300 hover:text-blue-400"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X /> : <Menu />}
           </button>

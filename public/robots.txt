@@ -1,0 +1,9 @@
+# robots.txt for jumeaucourt.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jumeaucourt.com/sitemap.xml
+
+Host: https://jumeaucourt.com

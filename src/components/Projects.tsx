@@ -384,10 +384,12 @@ const Projects = () => {
         </button>
 
         <div className="flex-1 mx-2 sm:mx-8">
-          <div
+          <article
             className="bg-gray-800 rounded-lg overflow-hidden border border-white/10"
             role="tabpanel"
             aria-label={currentProject.title}
+            itemScope
+            itemType="https://schema.org/SoftwareApplication"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[700px]">
               {/* Image Section */}
@@ -403,18 +405,19 @@ const Projects = () => {
                   className={`w-full h-full object-cover object-center transition-opacity duration-200 ${
                     imagesLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
-                  loading="eager"
-                  decoding="sync"
+                  loading="lazy"
+                  decoding="async"
+                  itemProp="screenshot"
                   style={{ imageRendering: 'auto' }}
                 />
               </div>
 
               {/* Content Section */}
               <div className="p-4 sm:p-6 flex flex-col h-full overflow-y-auto">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2" itemProp="name">
                   {currentProject.title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4">
+                <p className="text-sm sm:text-base text-gray-300 mb-4" itemProp="description">
                   {currentProject.description}
                 </p>
 
@@ -497,7 +500,7 @@ const Projects = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
 
         <button
