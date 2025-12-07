@@ -19,7 +19,7 @@ const Hero = () => {
   const translations = {
     en: {
       title: 'DevOps Engineer & VOIP Expert',
-      description: 'I turn coffee into code and make servers do what they\'re told. Based in Lyon, France, but my code runs everywhere.',
+      description: 'I turn coffee into code and make servers do what they\'re told. French, currently in Bucharest, but my code runs everywhere.',
       cta: {
         contact: 'Let\'s Chat!',
         experience: 'See What I\'ve Done'
@@ -27,7 +27,7 @@ const Hero = () => {
     },
     fr: {
       title: 'Ingénieur DevOps & Expert VOIP',
-      description: 'Je transforme le café en code et je fais faire aux serveurs ce qu\'on leur dit. Basé à Lyon, France, mais mon code tourne partout.',
+      description: 'Je transforme le café en code et je fais faire aux serveurs ce qu\'on leur dit. Français, actuellement à Bucarest, mais mon code tourne partout.',
       cta: {
         contact: 'On Discute !',
         experience: 'Voir Ce Que J\'ai Fait'
