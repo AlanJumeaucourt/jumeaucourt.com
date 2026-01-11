@@ -82,6 +82,7 @@ const placeList: Place[] = [
   { city: 'Tiraspol', country: 'Transnistria', coordinates: [46.841005, 29.612276] },
   { city: 'Craiova', country: 'Romania', coordinates: [44.316885, 23.799068] },
   { city: 'Compiègne', country: 'France', coordinates: [49.416286, 2.824602] },
+  { city: 'Sofia', country: 'Bulgaria', coordinates: [42.700990, 23.321351] },
 ];
 
 interface MapPoint {
