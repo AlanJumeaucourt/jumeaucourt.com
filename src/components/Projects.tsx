@@ -11,6 +11,11 @@ interface Project {
   challenges?: string[];
   github: string;
   live?: string;
+  screenshots?: {
+    label: string;
+    desktop: string;
+    mobile: string;
+  }[];
   image: {
     desktop: string;
     mobile: string;
@@ -20,6 +25,7 @@ interface Project {
 const Projects = () => {
   const { language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [screenshotIndex, setScreenshotIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const deviceType = useDeviceType();
 
@@ -53,7 +59,12 @@ const Projects = () => {
           challenges: [
             'Managing financial data in a mobile environment',
             'Secure data handling for sensitive financial information'
-          ]
+          ],
+          screenshots: {
+            dashboard: 'Dashboard',
+            wealthOverview: 'Wealth Overview',
+            investments: 'Investments'
+          }
         },
         hit_or_flop: {
           title: 'Hit or Flop',
@@ -155,7 +166,12 @@ const Projects = () => {
           challenges: [
             'Gestion des données financières dans un environnement mobile',
             'Traitement sécurisé des informations financières sensibles'
-          ]
+          ],
+          screenshots: {
+            dashboard: 'Tableau de bord',
+            wealthOverview: 'Aperçu du patrimoine',
+            investments: 'Investissements'
+          }
         },
         hit_or_flop: {
           title: 'Hit or Flop',
@@ -238,9 +254,27 @@ const Projects = () => {
       technicalHighlights: translations[language].projects.wealth_manager.technical,
       challenges: translations[language].projects.wealth_manager.challenges,
       github: 'https://github.com/AlanJumeaucourt/wealth_manager',
+      live: 'https://wealth-web-application.onrender.com',
+      screenshots: [
+        {
+          label: translations[language].projects.wealth_manager.screenshots.dashboard,
+          desktop: '/images/projects/wealth-manager/dashboard-white.png',
+          mobile: '/images/projects/wealth-manager/dashboard-white.png'
+        },
+        {
+          label: translations[language].projects.wealth_manager.screenshots.wealthOverview,
+          desktop: '/images/projects/wealth-manager/wealth-overview-white.png',
+          mobile: '/images/projects/wealth-manager/wealth-overview-white.png'
+        },
+        {
+          label: translations[language].projects.wealth_manager.screenshots.investments,
+          desktop: '/images/projects/wealth-manager/dashboard-investment-white.png',
+          mobile: '/images/projects/wealth-manager/dashboard-investment-white.png'
+        }
+      ],
       image: {
-        desktop: '/images/projects/wealth-manager/desktop.png',
-        mobile: '/images/projects/wealth-manager/mobile.png'
+        desktop: '/images/projects/wealth-manager/dashboard-white.png',
+        mobile: '/images/projects/wealth-manager/dashboard-white.png'
       }
     },
     {
@@ -310,6 +344,14 @@ const Projects = () => {
     return deviceType === 'mobile' ? project.image.mobile : project.image.desktop;
   };
 
+  const getDisplayedScreenshot = (project: Project) => {
+    if (!project.screenshots || project.screenshots.length === 0) {
+      return null;
+    }
+
+    return project.screenshots[screenshotIndex % project.screenshots.length];
+  };
+
   const preloadImage = (src: string) => {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -323,8 +365,9 @@ const Projects = () => {
   useEffect(() => {
     const preloadAllImages = async () => {
       const allImages = projects.flatMap(project => [
-        project.image.desktop,
-        project.image.mobile
+        ...(project.screenshots
+          ? project.screenshots.flatMap(screenshot => [screenshot.desktop, screenshot.mobile])
+          : [project.image.desktop, project.image.mobile])
       ]);
 
       // Preload all images in parallel
@@ -348,6 +391,10 @@ const Projects = () => {
   };
 
   const currentProject = useMemo(() => projects[currentIndex], [currentIndex]);
+
+  useEffect(() => {
+    setScreenshotIndex(0);
+  }, [currentIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -393,23 +440,52 @@ const Projects = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:h-[700px]">
               {/* Image Section */}
-              <div className="relative h-48 sm:h-64 md:h-full w-full">
-                {!imagesLoaded && (
-                  <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
-                    <div className="text-gray-400 text-sm">Loading images...</div>
+              <div className="flex h-48 sm:h-64 md:h-full w-full flex-col">
+                <div className="relative flex-1 min-h-0">
+                  {!imagesLoaded && (
+                    <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
+                      <div className="text-gray-400 text-sm">Loading images...</div>
+                    </div>
+                  )}
+                  <img
+                    src={getDisplayedScreenshot(currentProject)?.[deviceType === 'mobile' ? 'mobile' : 'desktop'] ?? getImageForDevice(currentProject)}
+                    alt={
+                      getDisplayedScreenshot(currentProject)?.label
+                        ? `${getDisplayedScreenshot(currentProject)?.label} screenshot of ${currentProject.title} project`
+                        : `Screenshot of ${currentProject.title} project`
+                    }
+                    className={`w-full h-full object-cover object-center transition-opacity duration-200 ${
+                      imagesLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    loading="lazy"
+                    decoding="async"
+                    itemProp="screenshot"
+                    style={{ imageRendering: 'auto' }}
+                  />
+                </div>
+                {currentProject.screenshots && currentProject.screenshots.length > 1 && (
+                  <div className="flex gap-2 overflow-x-auto border-t border-white/10 bg-gray-900/40 p-2">
+                    {currentProject.screenshots.map((screenshot, index) => {
+                      const isActive = index === screenshotIndex;
+
+                      return (
+                        <button
+                          key={screenshot.label}
+                          type="button"
+                          onClick={() => setScreenshotIndex(index)}
+                          className={`whitespace-nowrap rounded-full border px-3 py-1 text-xs transition-colors ${
+                            isActive
+                              ? 'border-blue-400 bg-blue-400/20 text-blue-200'
+                              : 'border-white/10 bg-white/5 text-gray-300 hover:border-blue-400/60 hover:text-white'
+                          }`}
+                          aria-pressed={isActive}
+                        >
+                          {screenshot.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
-                <img
-                  src={getImageForDevice(currentProject)}
-                  alt={`Screenshot of ${currentProject.title} project`}
-                  className={`w-full h-full object-cover object-center transition-opacity duration-200 ${
-                    imagesLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  loading="lazy"
-                  decoding="async"
-                  itemProp="screenshot"
-                  style={{ imageRendering: 'auto' }}
-                />
               </div>
 
               {/* Content Section */}
