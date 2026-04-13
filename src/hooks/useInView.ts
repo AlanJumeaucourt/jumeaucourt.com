@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export const useInView = (threshold = 0.1) => {
   const [isInView, setIsInView] = useState(false);
@@ -9,19 +9,21 @@ export const useInView = (threshold = 0.1) => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold }
+      { threshold },
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const observedElement = ref.current;
+
+    if (observedElement) {
+      observer.observe(observedElement);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (observedElement) {
+        observer.unobserve(observedElement);
       }
     };
   }, [threshold]);
 
   return { ref, isInView };
-}; 
+};

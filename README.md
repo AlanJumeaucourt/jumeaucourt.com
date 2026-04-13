@@ -34,16 +34,19 @@ src/
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone git@github.com:AlanJumeaucourt/jumeaucourt.com.git
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -51,16 +54,19 @@ npm run dev
 ## 🖥 Development
 
 To run the development server:
+
 ```bash
 npm run dev
 ```
 
 To build for production:
+
 ```bash
 npm run build
 ```
 
 To preview the production build:
+
 ```bash
 npm run preview
 ```

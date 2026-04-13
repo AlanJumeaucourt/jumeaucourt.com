@@ -1,17 +1,16 @@
-import Contact from './components/Contact';
-import Timeline from './components/Experience';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import ScrollToTop from './components/ScrollToTop';
-import SEO from './components/SEO';
-import Skills from './components/Skills';
-import SkipLink from './components/SkipLink';
-import TravelMap from './components/TravelMap';
-import { LanguageProvider } from './contexts/LanguageContext';
+import Contact from "./components/Contact";
+import Timeline from "./components/Experience";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import ScrollToTop from "./components/ScrollToTop";
+import SEO from "./components/SEO";
+import Skills from "./components/Skills";
+import SkipLink from "./components/SkipLink";
+import TravelMap from "./components/TravelMap";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 function App() {
-
   return (
     <LanguageProvider>
       <SEO />
@@ -29,7 +28,10 @@ function App() {
         </main>
         <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800 text-gray-400 py-8">
           <div className="container mx-auto px-4 text-center">
-            <p>© {new Date().getFullYear()} Alan Jumeaucourt. Made with ❤️ and probably too much coffee.</p>
+            <p>
+              © {new Date().getFullYear()} Alan Jumeaucourt. Made with ❤️ and probably too much
+              coffee.
+            </p>
           </div>
         </footer>
         <ScrollToTop />

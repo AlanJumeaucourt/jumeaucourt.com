@@ -1,6 +1,6 @@
-import { Menu, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,44 +11,48 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const translations = {
     en: {
-      projects: 'Projects',
-      travels: 'Travels',
-      experience: 'Experience & Education',
-      skills: 'Skills',
-      contact: 'Contact'
+      projects: "Projects",
+      travels: "Travels",
+      experience: "Experience & Education",
+      skills: "Skills",
+      contact: "Contact",
     },
     fr: {
-      projects: 'Projets',
-      travels: 'Voyages',
-      experience: 'Expérience & Éducation',
-      skills: 'Compétences',
-      contact: 'Contact'
-    }
+      projects: "Projets",
+      travels: "Voyages",
+      experience: "Expérience & Éducation",
+      skills: "Compétences",
+      contact: "Contact",
+    },
   };
 
-  const menuItems = ['projects', 'travels', 'experience', 'skills', 'contact'] as const;
+  const menuItems = ["projects", "travels", "experience", "skills", "contact"] as const;
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[1px] ${
-      isScrolled
-        ? 'bg-gray-900/80 backdrop-blur-sm before:bg-gray-800/50'
-        : 'bg-transparent before:bg-transparent'
-    }`}>
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[1px] ${
+        isScrolled
+          ? "bg-gray-900/80 backdrop-blur-sm before:bg-gray-800/50"
+          : "bg-transparent before:bg-transparent"
+      }`}
+    >
       <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex justify-between items-center">
           <a href="#" className="text-xl font-bold text-blue-400" aria-label="Home">
-          <span className="inline-block overflow-hidden whitespace-nowrap transition-all duration-1000 ease-in-out"
-                  style={{
-                    width: isScrolled ? '11rem' : '2rem',
-                    opacity: 1
-                  }}>
-              {isScrolled ? 'Alan Jumeaucourt' : 'AJ'}
+            <span
+              className="inline-block overflow-hidden whitespace-nowrap transition-all duration-1000 ease-in-out"
+              style={{
+                width: isScrolled ? "11rem" : "2rem",
+                opacity: 1,
+              }}
+            >
+              {isScrolled ? "Alan Jumeaucourt" : "AJ"}
             </span>
           </a>
 
@@ -65,22 +69,22 @@ const Header = () => {
 
             <div className="flex space-x-2" role="group" aria-label="Language selector">
               <button
-                onClick={() => setLanguage('en')}
+                onClick={() => setLanguage("en")}
                 className={`px-2 py-1 rounded ${
-                  language === 'en' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                  language === "en" ? "bg-blue-500 text-white" : "text-gray-300"
                 }`}
                 aria-label="Switch to English"
-                aria-pressed={language === 'en'}
+                aria-pressed={language === "en"}
               >
                 EN
               </button>
               <button
-                onClick={() => setLanguage('fr')}
+                onClick={() => setLanguage("fr")}
                 className={`px-2 py-1 rounded ${
-                  language === 'fr' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                  language === "fr" ? "bg-blue-500 text-white" : "text-gray-300"
                 }`}
                 aria-label="Switch to French"
-                aria-pressed={language === 'fr'}
+                aria-pressed={language === "fr"}
               >
                 FR
               </button>
@@ -90,7 +94,7 @@ const Header = () => {
           <button
             className="md:hidden text-gray-300 hover:text-blue-400"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -112,17 +116,17 @@ const Header = () => {
               ))}
               <div className="flex space-x-2">
                 <button
-                  onClick={() => setLanguage('en')}
+                  onClick={() => setLanguage("en")}
                   className={`px-2 py-1 rounded ${
-                    language === 'en' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                    language === "en" ? "bg-blue-500 text-white" : "text-gray-300"
                   }`}
                 >
                   EN
                 </button>
                 <button
-                  onClick={() => setLanguage('fr')}
+                  onClick={() => setLanguage("fr")}
                   className={`px-2 py-1 rounded ${
-                    language === 'fr' ? 'bg-blue-500 text-white' : 'text-gray-300'
+                    language === "fr" ? "bg-blue-500 text-white" : "text-gray-300"
                   }`}
                 >
                   FR

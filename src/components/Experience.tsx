@@ -1,18 +1,18 @@
-import { Briefcase, Globe, GraduationCap, School } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
-import { useLanguage } from '../contexts/LanguageContext';
+import { Briefcase, Globe, GraduationCap, School } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface Translation {
   title: string;
   experience: string;
   education: string;
   internship: string;
-  apprenticeship: string
+  apprenticeship: string;
   current: string;
 }
 
 interface TimelineItem {
-  type: 'experience' | 'education' | 'internship' | 'apprenticeship';
+  type: "experience" | "education" | "internship" | "apprenticeship";
   year: string;
   title: string;
   organization: string;
@@ -34,281 +34,291 @@ const Timeline = () => {
 
   const translations: { [key: string]: Translation } = {
     en: {
-      title: 'My Journey So Far',
-      experience: 'Experience',
-      education: 'Education',
-      internship: 'Internship',
-      apprenticeship: 'Apprenticeship',
-      current: 'Current'
+      title: "My Journey So Far",
+      experience: "Experience",
+      education: "Education",
+      internship: "Internship",
+      apprenticeship: "Apprenticeship",
+      current: "Current",
     },
     fr: {
-      title: 'Mon Parcours Jusqu\'ici',
-      experience: 'Expérience',
-      education: 'Formation',
-      internship: 'Stage',
-      apprenticeship: 'Apprentissage',
-      current: 'Actuel'
-    }
+      title: "Mon Parcours Jusqu'ici",
+      experience: "Expérience",
+      education: "Formation",
+      internship: "Stage",
+      apprenticeship: "Apprentissage",
+      current: "Actuel",
+    },
   };
 
   const timelineData: TimelineData = {
     en: [
       {
-        type: 'experience',
-        year: 'Oct 2025 - Now',
-        title: 'DevOps Engineer - Cloud Modernization',
-        organization: 'Thales, based in Romania',
+        type: "experience",
+        year: "Oct 2025 - Now",
+        title: "DevOps Engineer - Cloud Modernization",
+        organization: "Thales, based in Romania",
         details: [
-          'Working on Thales Cloud Journey modernization teams',
-          <>Modernizing and migrating applications to <a href="https://s3ns.io" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">S3NS cloud</a> (Thales + Google GCP on-premise)</>,
-          'Implementing DevOps best practices and methodologies',
-          'Streamlining cloud deployment and migration processes',
-          'Contributing to cloud infrastructure optimization and security'
+          "Working on Thales Cloud Journey modernization teams",
+          <>
+            Modernizing and migrating applications to{" "}
+            <a
+              href="https://s3ns.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300"
+            >
+              S3NS cloud
+            </a>{" "}
+            (Thales + Google GCP on-premise)
+          </>,
+          "Implementing DevOps best practices and methodologies",
+          "Streamlining cloud deployment and migration processes",
+          "Contributing to cloud infrastructure optimization and security",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: true
+        color: "green",
+        current: true,
       },
       {
-        type: 'apprenticeship',
-        year: '2022 - Sept 2025',
-        title: 'DevOps & VOIP Solutions Expert',
-        organization: 'XiVO - Avencall',
+        type: "apprenticeship",
+        year: "2022 - Sept 2025",
+        title: "DevOps & VOIP Solutions Expert",
+        organization: "XiVO - Avencall",
         details: [
-          'Proposed and implemented automation solutions to streamline deployment processes',
-          'Led initiative to improve documentation practices and knowledge sharing',
-          'Independently managed client projects from analysis to implementation',
-          'Proactively identified and resolved system bottlenecks',
-          'Developed innovative solutions for complex client requirements'
+          "Proposed and implemented automation solutions to streamline deployment processes",
+          "Led initiative to improve documentation practices and knowledge sharing",
+          "Independently managed client projects from analysis to implementation",
+          "Proactively identified and resolved system bottlenecks",
+          "Developed innovative solutions for complex client requirements",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
+        color: "green",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2022 - sept 2025',
-        title: 'Engineering Degree in Telecommunications',
-        organization: 'INSA Lyon',
+        type: "education",
+        year: "2022 - sept 2025",
+        title: "Engineering Degree in Telecommunications",
+        organization: "INSA Lyon",
         details: [
           "Advanced telecommunications",
           "Network infrastructure",
           "Systems engineering",
-          "Project management"
+          "Project management",
         ],
         icon: GraduationCap,
-        color: 'blue',
-        current: false
+        color: "blue",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2024 (Fall Semester)',
-        title: 'Erasmus Exchange Semester',
-        organization: 'Vilnius Tech, Lithuania',
+        type: "education",
+        year: "2024 (Fall Semester)",
+        title: "Erasmus Exchange Semester",
+        organization: "Vilnius Tech, Lithuania",
         details: [
-          'IoT (Internet of Things)',
-          'Cloud Computing',
-          'Databases',
-          'Software Engineering',
-          'Project Management'
+          "IoT (Internet of Things)",
+          "Cloud Computing",
+          "Databases",
+          "Software Engineering",
+          "Project Management",
         ],
         icon: School,
-        color: 'purple',
-        current: false
+        color: "purple",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2020 - 2022',
-        title: 'DUT Networks and Telecommunications',
-        organization: 'Université de Rouen Normandie',
-        details: [
-          "Network fundamentals",
-          "Telecommunications basics",
-          "Technical foundation"
-        ],
+        type: "education",
+        year: "2020 - 2022",
+        title: "DUT Networks and Telecommunications",
+        organization: "Université de Rouen Normandie",
+        details: ["Network fundamentals", "Telecommunications basics", "Technical foundation"],
         icon: School,
-        color: 'purple',
-        current: false
+        color: "purple",
+        current: false,
       },
       {
-        type: 'apprenticeship',
-        year: '2020 - 2022',
-        title: 'Telecom Operations Manager',
-        organization: 'EDF - UNITEP',
+        type: "apprenticeship",
+        year: "2020 - 2022",
+        title: "Telecom Operations Manager",
+        organization: "EDF - UNITEP",
         details: [
-          'Initiated and led infrastructure improvement projects',
-          'Developed and implemented new monitoring solutions',
-          'Autonomously managed critical telecommunications systems',
-          'Proposed and executed system optimization strategies',
-          'Created innovative solutions for operational challenges'
+          "Initiated and led infrastructure improvement projects",
+          "Developed and implemented new monitoring solutions",
+          "Autonomously managed critical telecommunications systems",
+          "Proposed and executed system optimization strategies",
+          "Created innovative solutions for operational challenges",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
+        color: "green",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2017 - 2020',
-        title: 'Bac Pro Digital Systems',
-        organization: 'Lycée Louis Modeste Leroy',
-        details: [
-          "Digital systems",
-          "Electronics",
-          "Technical training"
-        ],
+        type: "education",
+        year: "2017 - 2020",
+        title: "Bac Pro Digital Systems",
+        organization: "Lycée Louis Modeste Leroy",
+        details: ["Digital systems", "Electronics", "Technical training"],
         icon: School,
-        color: 'orange',
-        current: false
+        color: "orange",
+        current: false,
       },
       {
-        type: 'internship',
-        year: '2017 - 2020',
-        title: 'IT & Telecom Intern',
-        organization: 'Various Organizations',
+        type: "internship",
+        year: "2017 - 2020",
+        title: "IT & Telecom Intern",
+        organization: "Various Organizations",
         details: [
-          'Évreux Portes de Normandie - IT Systems Support (Nov 2019)',
-          'EET Service - IP Telephony Systems (Apr-May 2019)',
-          'CAF de l\'Eure - IT Infrastructure Support (Nov 2019)',
-          'Centre Hospitalier de Bernay - IT Systems Management (Jun 2018)',
-          'LBCDI - IT Support and Maintenance (Dec 2017)'
+          "Évreux Portes de Normandie - IT Systems Support (Nov 2019)",
+          "EET Service - IP Telephony Systems (Apr-May 2019)",
+          "CAF de l'Eure - IT Infrastructure Support (Nov 2019)",
+          "Centre Hospitalier de Bernay - IT Systems Management (Jun 2018)",
+          "LBCDI - IT Support and Maintenance (Dec 2017)",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
-      }
+        color: "green",
+        current: false,
+      },
     ],
     fr: [
       {
-        type: 'experience',
-        year: 'Sept 2025 - Aujourd\'hui',
-        title: 'Ingénieur DevOps - Modernisation Cloud',
-        organization: 'Thales Roumanie',
+        type: "experience",
+        year: "Sept 2025 - Aujourd'hui",
+        title: "Ingénieur DevOps - Modernisation Cloud",
+        organization: "Thales Roumanie",
         details: [
-          'Membre des équipes de modernisation Thales Cloud Journey',
-          <>Modernisation et migration d'applications vers le <a href="https://s3ns.io" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">cloud S3NS</a> (Thales + Google GCP on-premise)</>,
-          'Mise en œuvre des meilleures pratiques DevOps',
-          'Optimisation des processus de déploiement et de migration cloud',
-          'Contribution à l\'optimisation et à la sécurité de l\'infrastructure cloud'
+          "Membre des équipes de modernisation Thales Cloud Journey",
+          <>
+            Modernisation et migration d'applications vers le{" "}
+            <a
+              href="https://s3ns.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300"
+            >
+              cloud S3NS
+            </a>{" "}
+            (Thales + Google GCP on-premise)
+          </>,
+          "Mise en œuvre des meilleures pratiques DevOps",
+          "Optimisation des processus de déploiement et de migration cloud",
+          "Contribution à l'optimisation et à la sécurité de l'infrastructure cloud",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: true
+        color: "green",
+        current: true,
       },
       {
-        type: 'education',
-        year: '2022 - Sept 2025',
-        title: 'Diplôme d\'Ingénieur en Télécommunications',
-        organization: 'INSA Lyon',
+        type: "education",
+        year: "2022 - Sept 2025",
+        title: "Diplôme d'Ingénieur en Télécommunications",
+        organization: "INSA Lyon",
         details: [
           "Télécommunications avancées",
           "Infrastructure réseau",
           "Ingénierie des systèmes",
-          "Gestion de projets"
+          "Gestion de projets",
         ],
         icon: GraduationCap,
-        color: 'blue',
-        current: false
+        color: "blue",
+        current: false,
       },
       {
-        type: 'apprenticeship',
-        year: '2022 - Sept 2025',
-        title: 'Expert en DevOps et Solutions VOIP',
-        organization: 'XiVO - Avencall',
+        type: "apprenticeship",
+        year: "2022 - Sept 2025",
+        title: "Expert en DevOps et Solutions VOIP",
+        organization: "XiVO - Avencall",
         details: [
-          'Proposition et mise en œuvre de solutions d\'automatisation pour simplifier les processus de déploiement',
-          'Initié une initiative pour améliorer les pratiques de documentation et la mise en commun des connaissances',
-          'Gestion autonome de projets clients, de l\'analyse à la mise en œuvre',
-          'Identification proactive et résolution des bouteilles necks systémiques',
-          'Développement de solutions innovantes pour les exigences complexes des clients'
+          "Proposition et mise en œuvre de solutions d'automatisation pour simplifier les processus de déploiement",
+          "Initié une initiative pour améliorer les pratiques de documentation et la mise en commun des connaissances",
+          "Gestion autonome de projets clients, de l'analyse à la mise en œuvre",
+          "Identification proactive et résolution des bouteilles necks systémiques",
+          "Développement de solutions innovantes pour les exigences complexes des clients",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
+        color: "green",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2023 (Semestre d\'automne)',
-        title: 'Semestre d\'échange Erasmus',
-        organization: 'Vilnius Tech, Lituanie',
+        type: "education",
+        year: "2023 (Semestre d'automne)",
+        title: "Semestre d'échange Erasmus",
+        organization: "Vilnius Tech, Lituanie",
         details: [
-          'IoT (Internet of Things)',
-          'Cloud Computing',
-          'Bases de données',
-          'Ingénierie logicielle',
-          'Gestion de projets'
+          "IoT (Internet of Things)",
+          "Cloud Computing",
+          "Bases de données",
+          "Ingénierie logicielle",
+          "Gestion de projets",
         ],
         icon: School,
-        color: 'purple',
-        current: false
+        color: "purple",
+        current: false,
       },
       {
-        type: 'apprenticeship',
-        year: '2020 - 2022',
-        title: 'Responsable des Opérations Télécom',
-        organization: 'EDF - UNITEP',
+        type: "apprenticeship",
+        year: "2020 - 2022",
+        title: "Responsable des Opérations Télécom",
+        organization: "EDF - UNITEP",
         details: [
-          'Initié et dirigé des projets d\'amélioration de l\'infrastructure',
-          'Développé et mis en œuvre de nouvelles solutions de surveillance',
-          'Gestion autonome des systèmes télécoms critiques',
-          'Proposition et exécution de stratégies d\'optimisation des systèmes',
-          'Création de solutions innovantes pour les défis opérationnels'
+          "Initié et dirigé des projets d'amélioration de l'infrastructure",
+          "Développé et mis en œuvre de nouvelles solutions de surveillance",
+          "Gestion autonome des systèmes télécoms critiques",
+          "Proposition et exécution de stratégies d'optimisation des systèmes",
+          "Création de solutions innovantes pour les défis opérationnels",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
+        color: "green",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2020 - 2022',
-        title: 'DUT Réseaux et Télécommunications',
-        organization: 'Université de Rouen Normandie',
+        type: "education",
+        year: "2020 - 2022",
+        title: "DUT Réseaux et Télécommunications",
+        organization: "Université de Rouen Normandie",
         details: [
           "Fondamentaux des réseaux",
           "Bases des télécommunications",
-          "Formation technique"
+          "Formation technique",
         ],
         icon: School,
-        color: 'purple',
-        current: false
+        color: "purple",
+        current: false,
       },
       {
-        type: 'internship',
-        year: '2017 - 2020',
-        title: 'Stagiaire en IT et Télécom',
-        organization: 'Diverses Organisations',
+        type: "internship",
+        year: "2017 - 2020",
+        title: "Stagiaire en IT et Télécom",
+        organization: "Diverses Organisations",
         details: [
-          'Évreux Portes de Normandie - Support des Systèmes IT (Nov 2019)',
-          'EET Service - Systèmes de Téléphonie IP (Avr-Mai 2019)',
-          'CAF de l\'Eure - Support de l\'Infrastructures IT (Nov 2019)',
-          'Centre Hospitalier de Bernay - Gestion des Systèmes IT (Juin 2018)',
-          'LBCDI - Support et Maintenance IT (Déc 2017)'
+          "Évreux Portes de Normandie - Support des Systèmes IT (Nov 2019)",
+          "EET Service - Systèmes de Téléphonie IP (Avr-Mai 2019)",
+          "CAF de l'Eure - Support de l'Infrastructures IT (Nov 2019)",
+          "Centre Hospitalier de Bernay - Gestion des Systèmes IT (Juin 2018)",
+          "LBCDI - Support et Maintenance IT (Déc 2017)",
         ],
         icon: Briefcase,
-        color: 'green',
-        current: false
+        color: "green",
+        current: false,
       },
       {
-        type: 'education',
-        year: '2017 - 2020',
-        title: 'Bac Pro Systèmes Numériques',
-        organization: 'Lycée Louis Modeste Leroy',
-        details: [
-          "Systèmes numériques",
-          "Électronique",
-          "Formation technique"
-        ],
+        type: "education",
+        year: "2017 - 2020",
+        title: "Bac Pro Systèmes Numériques",
+        organization: "Lycée Louis Modeste Leroy",
+        details: ["Systèmes numériques", "Électronique", "Formation technique"],
         icon: School,
-        color: 'orange',
-        current: false
+        color: "orange",
+        current: false,
       },
-    ]
+    ],
   };
 
   return (
     <section
       id="experience"
       ref={ref}
-      className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}
+      className={`py-16 section-fade ${isInView ? "in-view" : ""}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-12 text-center text-blue-400">
@@ -324,7 +334,7 @@ const Timeline = () => {
             {timelineData[language].map((item, index) => (
               <div
                 key={index}
-                className={`relative flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}
+                className={`relative flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Timeline dot */}
@@ -333,7 +343,7 @@ const Timeline = () => {
                 </div>
 
                 {/* Content */}
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
                   <div className="card p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/10">
                     <div className="flex items-start gap-4">
                       <div className="flex-1">
@@ -346,12 +356,12 @@ const Timeline = () => {
                               {translations[language].current}
                             </span>
                           )}
-                          {item.type === 'internship' && (
+                          {item.type === "internship" && (
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-400/20 text-green-400">
                               {translations[language].internship}
                             </span>
                           )}
-                          {item.type === 'apprenticeship' && (
+                          {item.type === "apprenticeship" && (
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-600/20 text-green-600">
                               {translations[language].apprenticeship}
                             </span>
@@ -366,13 +376,13 @@ const Timeline = () => {
                         </div>
                       </div>
                       <div className="mt-1">
-                        {item.type === 'experience' ? (
+                        {item.type === "experience" ? (
                           <Briefcase className="w-6 h-6 text-blue-400" />
-                        ) : item.type === 'internship' ? (
+                        ) : item.type === "internship" ? (
                           <Briefcase className="w-6 h-6 text-green-400" />
-                        ) : item.type === 'education' ? (
+                        ) : item.type === "education" ? (
                           <GraduationCap className="w-6 h-6 text-blue-400" />
-                        ) : item.type === 'apprenticeship' ? (
+                        ) : item.type === "apprenticeship" ? (
                           <Briefcase className="w-6 h-6 text-green-600" />
                         ) : (
                           <Globe className="w-6 h-6 text-blue-400" />

@@ -1,5 +1,5 @@
-import { ArrowUp } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,14 +15,14 @@ const ScrollToTop = () => {
       setIsVisible(scrollPercentage > 0.7);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 

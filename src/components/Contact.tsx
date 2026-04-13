@@ -1,7 +1,7 @@
-import { Github, Linkedin, Loader2, Mail } from 'lucide-react';
-import { useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { useInView } from '../hooks/useInView';
+import { Github, Linkedin, Loader2, Mail } from "lucide-react";
+import { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useInView } from "../hooks/useInView";
 
 const Contact = () => {
   const { ref, isInView } = useInView();
@@ -10,61 +10,61 @@ const Contact = () => {
 
   const translations = {
     en: {
-      title: 'Let\'s Connect!',
-      description: 'Want to chat about tech, travel, or just say hi? I\'m always up for a good conversation. Drop me a line!',
-      cta: 'Say Hello!',
+      title: "Let's Connect!",
+      description:
+        "Want to chat about tech, travel, or just say hi? I'm always up for a good conversation. Drop me a line!",
+      cta: "Say Hello!",
       links: {
-        github: 'GitHub',
-        linkedin: 'LinkedIn',
-        email: 'Email'
-      }
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        email: "Email",
+      },
     },
     fr: {
-      title: 'Connectons-nous !',
-      description: 'Envie de discuter tech, voyage, ou juste dire bonjour ? Je suis toujours partant pour une bonne conversation. Envoie-moi un message !',
-      cta: 'Dire Bonjour !',
+      title: "Connectons-nous !",
+      description:
+        "Envie de discuter tech, voyage, ou juste dire bonjour ? Je suis toujours partant pour une bonne conversation. Envoie-moi un message !",
+      cta: "Dire Bonjour !",
       links: {
-        github: 'GitHub',
-        linkedin: 'LinkedIn',
-        email: 'Email'
-      }
-    }
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        email: "Email",
+      },
+    },
   };
 
   const handleLinkClick = async (type: string) => {
     setLoading(type);
     // Simulate loading for external links
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     setLoading(null);
   };
 
   const socialLinks = [
     {
-      type: 'github',
-      href: 'https://github.com/AlanJumeaucourt',
+      type: "github",
+      href: "https://github.com/AlanJumeaucourt",
       icon: <Github className="w-6 h-6" />,
-      label: translations[language].links.github
+      label: translations[language].links.github,
     },
     {
-      type: 'linkedin',
-      href: 'https://www.linkedin.com/in/alan-jumeaucourt',
+      type: "linkedin",
+      href: "https://www.linkedin.com/in/alan-jumeaucourt",
       icon: <Linkedin className="w-6 h-6" />,
-      label: translations[language].links.linkedin
+      label: translations[language].links.linkedin,
     },
     {
-      type: 'email',
-      href: 'mailto:fromblog@mail.jumeaucourt.com',
+      type: "email",
+      href: "mailto:fromblog@mail.jumeaucourt.com",
       icon: <Mail className="w-6 h-6" />,
-      label: translations[language].links.email
-    }
+      label: translations[language].links.email,
+    },
   ];
 
   return (
-    <section id="contact" ref={ref} className={`py-16 section-fade ${isInView ? 'in-view' : ''}`}>
+    <section id="contact" ref={ref} className={`py-16 section-fade ${isInView ? "in-view" : ""}`}>
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12 text-blue-400">
-          {translations[language].title}
-        </h2>
+        <h2 className="text-3xl font-bold mb-12 text-blue-400">{translations[language].title}</h2>
         <div className="flex flex-wrap justify-center gap-8 mb-12">
           {socialLinks.map(({ type, href, icon, label }) => (
             <a
