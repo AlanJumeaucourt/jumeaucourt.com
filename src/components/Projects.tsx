@@ -439,7 +439,11 @@ const Projects = () => {
                   )}
                   <img
                     src={getDisplayedScreenshot(currentProject)?.[deviceType === 'mobile' ? 'mobile' : 'desktop'] ?? getImageForDevice(currentProject)}
-                    alt={`Screenshot of ${currentProject.title} project`}
+                    alt={
+                      getDisplayedScreenshot(currentProject)?.label
+                        ? `${getDisplayedScreenshot(currentProject)?.label} screenshot of ${currentProject.title} project`
+                        : `Screenshot of ${currentProject.title} project`
+                    }
                     className={`w-full h-full object-cover object-center transition-opacity duration-200 ${
                       imagesLoaded ? 'opacity-100' : 'opacity-0'
                     }`}
