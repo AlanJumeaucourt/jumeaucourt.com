@@ -59,7 +59,8 @@ const Projects = () => {
           challenges: [
             'Managing financial data in a mobile environment',
             'Secure data handling for sensitive financial information'
-          ]
+          ],
+          screenshots: ['Dashboard', 'Wealth Overview', 'Investments']
         },
         hit_or_flop: {
           title: 'Hit or Flop',
@@ -161,7 +162,8 @@ const Projects = () => {
           challenges: [
             'Gestion des données financières dans un environnement mobile',
             'Traitement sécurisé des informations financières sensibles'
-          ]
+          ],
+          screenshots: ['Tableau de bord', 'Aperçu du patrimoine', 'Investissements']
         },
         hit_or_flop: {
           title: 'Hit or Flop',
@@ -247,17 +249,17 @@ const Projects = () => {
       live: 'https://wealth-web-application.onrender.com',
       screenshots: [
         {
-          label: 'Dashboard',
+          label: translations[language].projects.wealth_manager.screenshots[0],
           desktop: '/images/projects/wealth-manager/dashboard-white.png',
           mobile: '/images/projects/wealth-manager/dashboard-white.png'
         },
         {
-          label: 'Wealth Overview',
+          label: translations[language].projects.wealth_manager.screenshots[1],
           desktop: '/images/projects/wealth-manager/wealth-overview-white.png',
           mobile: '/images/projects/wealth-manager/wealth-overview-white.png'
         },
         {
-          label: 'Investments',
+          label: translations[language].projects.wealth_manager.screenshots[2],
           desktop: '/images/projects/wealth-manager/dashboard-investment-white.png',
           mobile: '/images/projects/wealth-manager/dashboard-investment-white.png'
         }
