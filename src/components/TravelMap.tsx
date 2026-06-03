@@ -90,7 +90,7 @@ const placeList: Place[] = [
   { city: "Tiraspol", country: "Transnistria", coordinates: [46.841005, 29.612276] },
   { city: "Craiova", country: "Romania", coordinates: [44.316885, 23.799068] },
   { city: "Pitesti", country: "Romania", coordinates: [44.860556, 24.867778] },
-  { city: "Turnu Magurele", country: "Romania", coordinates: [43.751111, 24.871944] },
+  { city: "Turnu", country: "Romania", coordinates: [45.2573, 24.3317] },
   { city: "Curtea de Arges", country: "Romania", coordinates: [45.141667, 24.673056] },
   { city: "Ramnicu Valcea", country: "Romania", coordinates: [45.104722, 24.375556] },
   { city: "Compiègne", country: "France", coordinates: [49.416286, 2.824602] },
