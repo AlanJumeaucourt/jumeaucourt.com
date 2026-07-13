@@ -92,9 +92,11 @@ const placeList: Place[] = [
   { city: "Pitesti", country: "Romania", coordinates: [44.860556, 24.867778] },
   { city: "Turnu", country: "Romania", coordinates: [45.2573, 24.3317] },
   { city: "Curtea de Arges", country: "Romania", coordinates: [45.141667, 24.673056] },
+  { city: "Transfagarasan", country: "Romania", coordinates: [45.6050916, 24.6154985] },
   { city: "Ramnicu Valcea", country: "Romania", coordinates: [45.104722, 24.375556] },
   { city: "Compiègne", country: "France", coordinates: [49.416286, 2.824602] },
   { city: "Sofia", country: "Bulgaria", coordinates: [42.70099, 23.321351] },
+  { city: "Balchik", country: "Bulgaria", coordinates: [43.4257631, 28.1625285] },
 ];
 
 interface MapPoint {
