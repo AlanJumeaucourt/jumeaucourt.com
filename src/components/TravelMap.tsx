@@ -58,6 +58,7 @@ const placeList: Place[] = [
   { city: "Dubrovnik", country: "Croatia", coordinates: [42.648471, 18.108859] },
   { city: "Hvar", country: "Croatia", coordinates: [43.170792812274414, 16.444345044353323] },
   { city: "Toulouse", country: "France", coordinates: [43.604652, 1.444209] },
+  { city: "Montpelier", country: "France", coordinates: [43.6102803, 3.8806871] },
   { city: "Bayonne", country: "France", coordinates: [43.493868, -1.469328] },
   { city: "Rome", country: "Italy", coordinates: [41.9028, 12.4964] },
   { city: "Eskape Festival", country: "France", coordinates: [48.811111, -0.572583] },
