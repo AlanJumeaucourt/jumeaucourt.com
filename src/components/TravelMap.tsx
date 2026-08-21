@@ -98,7 +98,7 @@ const placeList: Place[] = [
   { city: "Ramnicu Valcea", country: "Romania", coordinates: [45.104722, 24.375556] },
   { city: "Compiègne", country: "France", coordinates: [49.416286, 2.824602] },
   { city: "Dax", country: "France", coordinates: [43.7102, -1.0537] },
-  { city: "Chambery", country: "France", coordinates: [45.5646, 5.9178] },
+  { city: "Chambéry", country: "France", coordinates: [45.5646, 5.9178] },
   { city: "Lecco", country: "Italy", coordinates: [45.8566, 9.3977] },
   { city: "Sofia", country: "Bulgaria", coordinates: [42.70099, 23.321351] },
   { city: "Balchik", country: "Bulgaria", coordinates: [43.4257631, 28.1625285] },
