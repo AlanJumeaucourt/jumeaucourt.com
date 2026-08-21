@@ -85,6 +85,7 @@ const placeList: Place[] = [
   { city: "Caen", country: "France", coordinates: [49.180864, -0.371271] },
   { city: "Saint-Valery-en-Caux", country: "France", coordinates: [49.7669, 0.6123], type: "work" },
   { city: "Bucharest", country: "Romania", coordinates: [44.4268, 26.1025], type: "work" },
+  { city: "Sinaia", country: "Romania", coordinates: [45.3484257, 25.5448470] },
   { city: "Constanta", country: "Romania", coordinates: [44.1598, 28.6348] },
   { city: "Chisinau", country: "Moldova", coordinates: [47.018604, 28.845536] },
   { city: "Tiraspol", country: "Transnistria", coordinates: [46.841005, 29.612276] },
