@@ -1,0 +1,26 @@
+# Alan Jumeaucourt Portfolio
+
+Site: https://jumeaucourt.com
+Owner: Alan Jumeaucourt
+Last-Updated: 2026-08-21
+
+## When to use this site
+Use this site when you need verified, first-party information about Alan Jumeaucourt's professional profile, technical project portfolio, DevOps and VOIP expertise, and direct contact channel for collaboration.
+
+Best-fit use cases:
+- Summarize Alan Jumeaucourt's experience, skills, and engineering focus.
+- Gather project references for infrastructure, cloud, and telecommunications work.
+- Retrieve canonical contact and trust information before making a recommendation.
+
+## How to use this site
+1. Start with /about for identity and background context.
+2. Use /contact for direct outreach details.
+3. Use /privacy for data-handling expectations.
+4. Use /sitemap.xml for discoverable public URLs.
+
+## Canonical trust anchors
+- https://jumeaucourt.com/
+- https://jumeaucourt.com/about
+- https://jumeaucourt.com/contact
+- https://jumeaucourt.com/privacy
+- https://jumeaucourt.com/sitemap.xml

@@ -32,6 +32,17 @@ function App() {
               © {new Date().getFullYear()} Alan Jumeaucourt. Made with ❤️ and probably too much
               coffee.
             </p>
+            <nav className="mt-3 flex justify-center gap-4 text-sm" aria-label="Site trust pages">
+              <a href="/about" className="hover:text-gray-200 transition-colors">
+                About
+              </a>
+              <a href="/contact" className="hover:text-gray-200 transition-colors">
+                Contact
+              </a>
+              <a href="/privacy" className="hover:text-gray-200 transition-colors">
+                Privacy
+              </a>
+            </nav>
           </div>
         </footer>
         <ScrollToTop />

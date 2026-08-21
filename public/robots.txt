@@ -6,4 +6,7 @@ Allow: /
 # Sitemap location
 Sitemap: https://jumeaucourt.com/sitemap.xml
 
+# Agent guidance
+# https://jumeaucourt.com/llms.txt
+
 Host: https://jumeaucourt.com

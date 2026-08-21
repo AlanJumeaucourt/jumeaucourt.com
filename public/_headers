@@ -1,0 +1,6 @@
+/*
+  Vary: Accept, Accept-Encoding
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept, Accept-Encoding
