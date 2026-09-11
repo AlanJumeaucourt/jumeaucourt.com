@@ -100,6 +100,7 @@ const placeList: Place[] = [
   { city: "Dax", country: "France", coordinates: [43.7102, -1.0537] },
   { city: "Chambéry", country: "France", coordinates: [45.5646, 5.9178] },
   { city: "Lecco", country: "Italy", coordinates: [45.8566, 9.3977] },
+  { city: "Berlin", country: "Germany", coordinates: [52.5163419, 13.3785551] },
   { city: "Sofia", country: "Bulgaria", coordinates: [42.70099, 23.321351] },
   { city: "Balchik", country: "Bulgaria", coordinates: [43.4257631, 28.1625285] },
 ];
