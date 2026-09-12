@@ -153,7 +153,7 @@ const TravelMap: React.FC = () => {
         if (mapRef.current && !mapInstanceRef.current) {
           // Create POSITRON tile layer (light theme)
           const positronTileLayer = L.tileLayer(
-            "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+            "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_3ibj_1_f31c18966726750d37a4a8b8",
             {
               attribution: "© OpenStreetMap contributors © CARTO",
               subdomains: "abcd",
