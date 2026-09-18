@@ -103,6 +103,10 @@ const placeList: Place[] = [
   { city: "Berlin", country: "Germany", coordinates: [52.5163419, 13.3785551] },
   { city: "Sofia", country: "Bulgaria", coordinates: [42.70099, 23.321351] },
   { city: "Balchik", country: "Bulgaria", coordinates: [43.4257631, 28.1625285] },
+  { city: "Hamburg", country: "Germany", coordinates: [53.5506, 9.9924] },
+  { city: "Amsterdam", country: "Netherlands", coordinates: [52.3666, 4.9005] },
+  { city: "Antwerp", country: "Belgium", coordinates: [51.2211, 4.3997] },
+  { city: "Brussel", country: "Belgium", coordinates: [50.8467, 4.3525] },
 ];
 
 interface MapPoint {
