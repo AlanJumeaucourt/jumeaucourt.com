@@ -1,4 +1,4 @@
-import { Cpu, Phone, Server, Terminal, Users } from "lucide-react";
+import { Cloud, GitBranch, Network, Server, ShieldCheck, Users } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useInView } from "../hooks/useInView";
 
@@ -8,109 +8,73 @@ const Skills = () => {
 
   const translations = {
     en: {
-      title: "What I'm Good At",
+      title: "Technical & Professional Skills",
       categories: {
+        cloud: {
+          title: "Cloud & Containerization",
+          skills: ["GCP", "S3NS", "GKE", "Kubernetes", "Docker", "Podman", "Helm"],
+        },
         devops: {
-          title: "DevOps",
-          skills: [
-            { name: "CI/CD", level: 5 },
-            { name: "Docker", level: 5 },
-            { name: "Kubernetes", level: 4 },
-            { name: "Jenkins", level: 4 },
-            { name: "Git", level: 5 },
-            { name: "Ansible", level: 4 },
-          ],
-        },
-        voip: {
-          title: "VOIP & Telecom",
-          skills: [
-            { name: "XiVO", level: 5 },
-            { name: "Asterisk", level: 4 },
-            { name: "SIP", level: 5 },
-            { name: "WebRTC", level: 4 },
-            { name: "VoIP Architecture", level: 5 },
-          ],
-        },
-        infrastructure: {
-          title: "Infrastructure",
-          skills: [
-            { name: "Linux", level: 5 },
-            { name: "AWS", level: 4 },
-            { name: "Network Administration", level: 5 },
-            { name: "Security", level: 4 },
-          ],
+          title: "DevOps & Automation",
+          skills: ["GitLab CI/CD", "Argo CD", "Git", "Terraform", "Ansible", "Bash", "Python"],
         },
         systems: {
-          title: "Systems",
-          skills: [
-            { name: "System Architecture", level: 5 },
-            { name: "Monitoring", level: 4 },
-            { name: "Troubleshooting", level: 5 },
-            { name: "Performance Optimization", level: 4 },
-          ],
+          title: "Systems & Infrastructure",
+          skills: ["Linux/Debian", "VMware ESXi", "Proxmox", "Infrastructure as Code (IaC)"],
         },
-        leadership: {
-          title: "Leadership",
+        networking: {
+          title: "Networking & Telecom",
+          skills: ["TCP/IP", "SIP/VoIP", "DNS", "DHCP", "RADIUS", "Active Directory"],
+        },
+        security: {
+          title: "Monitoring & Security",
+          skills: ["Grafana", "IAM", "TLS/SSL", "Artifactory"],
+        },
+        soft: {
+          title: "Soft Skills",
           skills: [
-            { name: "Project Initiative", level: 4 },
-            { name: "Autonomous Problem Solving", level: 5 },
-            { name: "Strategic Planning", level: 4 },
-            { name: "Innovation Leadership", level: 4 },
-            { name: "Process Optimization", level: 5 },
+            "Problem-Solving & Critical Thinking",
+            "Teamwork & Collaboration",
+            "Autonomy & Initiative",
+            "Adaptability",
+            "Organization & Prioritization",
+            "Technical Communication",
           ],
         },
       },
     },
     fr: {
-      title: "Ce Que Je Sais Faire",
+      title: "Compétences techniques et professionnelles",
       categories: {
+        cloud: {
+          title: "Cloud et conteneurisation",
+          skills: ["GCP", "S3NS", "GKE", "Kubernetes", "Docker", "Podman", "Helm"],
+        },
         devops: {
-          title: "DevOps",
-          skills: [
-            { name: "CI/CD", level: 5 },
-            { name: "Docker", level: 5 },
-            { name: "Kubernetes", level: 4 },
-            { name: "Jenkins", level: 4 },
-            { name: "Git", level: 5 },
-            { name: "Ansible", level: 4 },
-          ],
-        },
-        voip: {
-          title: "VOIP & Télécom",
-          skills: [
-            { name: "XiVO", level: 5 },
-            { name: "Asterisk", level: 4 },
-            { name: "SIP", level: 5 },
-            { name: "WebRTC", level: 4 },
-            { name: "Architecture VoIP", level: 5 },
-          ],
-        },
-        infrastructure: {
-          title: "Infrastructure",
-          skills: [
-            { name: "Linux", level: 5 },
-            { name: "AWS", level: 4 },
-            { name: "Administration Réseau", level: 5 },
-            { name: "Sécurité", level: 4 },
-          ],
+          title: "DevOps et automatisation",
+          skills: ["GitLab CI/CD", "Argo CD", "Git", "Terraform", "Ansible", "Bash", "Python"],
         },
         systems: {
-          title: "Systèmes",
-          skills: [
-            { name: "Architecture Système", level: 5 },
-            { name: "Monitoring", level: 4 },
-            { name: "Résolution de Problèmes", level: 5 },
-            { name: "Optimisation des Performances", level: 4 },
-          ],
+          title: "Systèmes et infrastructure",
+          skills: ["Linux/Debian", "VMware ESXi", "Proxmox", "Infrastructure as Code (IaC)"],
         },
-        leadership: {
-          title: "Leadership",
+        networking: {
+          title: "Réseaux et télécommunications",
+          skills: ["TCP/IP", "SIP/VoIP", "DNS", "DHCP", "RADIUS", "Active Directory"],
+        },
+        security: {
+          title: "Supervision et sécurité",
+          skills: ["Grafana", "IAM", "TLS/SSL", "Artifactory"],
+        },
+        soft: {
+          title: "Compétences relationnelles",
           skills: [
-            { name: "Initiative de Projet", level: 4 },
-            { name: "Résolution Autonome de Problèmes", level: 5 },
-            { name: "Planification Stratégique", level: 4 },
-            { name: "Leadership en Innovation", level: 4 },
-            { name: "Optimisation des Processus", level: 5 },
+            "Résolution de problèmes et esprit critique",
+            "Travail en équipe et collaboration",
+            "Autonomie et initiative",
+            "Adaptabilité",
+            "Organisation et priorisation",
+            "Communication technique",
           ],
         },
       },
@@ -119,39 +83,30 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      key: "cloud",
+      icon: <Cloud className="w-8 h-8 text-blue-400" />,
+    },
+    {
       key: "devops",
-      icon: <Terminal className="w-8 h-8 text-blue-400" />,
-    },
-    {
-      key: "voip",
-      icon: <Phone className="w-8 h-8 text-blue-400" />,
-    },
-    {
-      key: "infrastructure",
-      icon: <Server className="w-8 h-8 text-blue-400" />,
+      icon: <GitBranch className="w-8 h-8 text-blue-400" />,
     },
     {
       key: "systems",
-      icon: <Cpu className="w-8 h-8 text-blue-400" />,
+      icon: <Server className="w-8 h-8 text-blue-400" />,
     },
     {
-      key: "leadership",
+      key: "networking",
+      icon: <Network className="w-8 h-8 text-blue-400" />,
+    },
+    {
+      key: "security",
+      icon: <ShieldCheck className="w-8 h-8 text-blue-400" />,
+    },
+    {
+      key: "soft",
       icon: <Users className="w-8 h-8 text-blue-400" />,
     },
   ] as const;
-
-  const renderSkillLevel = (level: number) => {
-    return (
-      <div className="flex gap-1">
-        {[1, 2, 3, 4, 5].map((value) => (
-          <div
-            key={value}
-            className={`h-1.5 w-3 rounded-full ${value <= level ? "bg-blue-400" : "bg-gray-600"}`}
-          />
-        ))}
-      </div>
-    );
-  };
 
   return (
     <section id="skills" ref={ref} className={`py-16 section-fade ${isInView ? "in-view" : ""}`}>
@@ -172,18 +127,13 @@ const Skills = () => {
                   {translations[language].categories[category.key].title}
                 </h3>
               </div>
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {translations[language].categories[category.key].skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="group hover:bg-gray-700/70 rounded-lg px-3 py-2 transition-all duration-300"
+                    className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1.5 text-sm text-gray-300 transition-colors hover:border-blue-400/50 hover:bg-blue-400/20 hover:text-white"
                   >
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-gray-300 group-hover:text-white transition-colors">
-                        {skill.name}
-                      </span>
-                      {renderSkillLevel(skill.level)}
-                    </div>
+                    {skill}
                   </div>
                 ))}
               </div>
