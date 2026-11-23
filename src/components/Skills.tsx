@@ -27,8 +27,8 @@ const Skills = () => {
           skills: ["TCP/IP", "SIP/VoIP", "DNS", "DHCP", "RADIUS", "Active Directory"],
         },
         security: {
-          title: "Monitoring & Security",
-          skills: ["Grafana", "IAM", "TLS/SSL", "Artifactory"],
+          title: "Observability & Security",
+          skills: ["Grafana", "Loki", "Mimir", "IAM", "TLS/SSL", "Artifactory"],
         },
         soft: {
           title: "Soft Skills",
@@ -63,8 +63,8 @@ const Skills = () => {
           skills: ["TCP/IP", "SIP/VoIP", "DNS", "DHCP", "RADIUS", "Active Directory"],
         },
         security: {
-          title: "Supervision et sécurité",
-          skills: ["Grafana", "IAM", "TLS/SSL", "Artifactory"],
+          title: "Observabilité et sécurité",
+          skills: ["Grafana", "Loki", "Mimir", "IAM", "TLS/SSL", "Artifactory"],
         },
         soft: {
           title: "Compétences relationnelles",
