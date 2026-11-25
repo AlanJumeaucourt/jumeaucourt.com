@@ -113,7 +113,7 @@ const Timeline = () => {
       },
       {
         type: "education",
-        year: "1st semester 2025",
+        year: "Sep 2024 - Feb 2025",
         title: "Erasmus Exchange Semester",
         organization: "Vilnius Tech, Lithuania",
         details: [
@@ -241,7 +241,7 @@ const Timeline = () => {
       },
       {
         type: "education",
-        year: "1er semestre 2025",
+        year: "Sept. 2024 - Févr. 2025",
         title: "Semestre d'échange Erasmus",
         organization: "Vilnius Tech, Lituanie",
         details: [
