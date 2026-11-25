@@ -27,13 +27,13 @@ const SEO = () => {
 
     // Update title and description based on language
     const titles = {
-      en: "Alan Jumeaucourt - DevOps Engineer & VOIP Expert | Infrastructure Automation Specialist",
-      fr: "Alan Jumeaucourt - Ingénieur DevOps & Expert VOIP | Spécialiste en Automatisation d'Infrastructure",
+      en: "Alan Jumeaucourt - DevOps / Cloud Engineer",
+      fr: "Alan Jumeaucourt - Ingénieur DevOps / Cloud",
     };
 
     const descriptions = {
-      en: "French DevOps Engineer & VOIP Expert based in Bucharest. Specializing in infrastructure automation, cloud solutions, telecommunications, and building scalable systems. Explore my projects, experience, and technical expertise.",
-      fr: "Ingénieur DevOps & Expert VOIP français basé à Bucarest. Spécialisé en automatisation d'infrastructure, solutions cloud, télécommunications et construction de systèmes évolutifs. Découvrez mes projets, expérience et expertise technique.",
+      en: "French DevOps / Cloud Engineer based in Bucharest. Focused on cloud platforms, infrastructure automation, Kubernetes, and reliable deployments. Explore my projects, experience, and technical skills.",
+      fr: "Ingénieur DevOps / Cloud français basé à Bucarest. Spécialisé dans les plateformes cloud, l'automatisation d'infrastructure, Kubernetes et la fiabilité des déploiements. Découvrez mes projets, mon parcours et mes compétences.",
     };
 
     document.title = titles[language];

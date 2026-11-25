@@ -18,18 +18,18 @@ const Hero = () => {
 
   const translations = {
     en: {
-      title: "DevOps Engineer & VOIP Expert",
+      title: "DevOps / Cloud Engineer",
       description:
-        "I turn coffee into code and make servers do what they're told. French, currently in Bucharest, but my code runs everywhere.",
+        "I build cloud platforms, automate infrastructure, and improve deployment reliability. French engineer based in Bucharest.",
       cta: {
         contact: "Let's Chat!",
         experience: "See What I've Done",
       },
     },
     fr: {
-      title: "Ingénieur DevOps & Expert VOIP",
+      title: "Ingénieur DevOps / Cloud",
       description:
-        "Je transforme le café en code et je fais faire aux serveurs ce qu'on leur dit. Français, actuellement à Bucarest, mais mon code tourne partout.",
+        "Je conçois des plateformes cloud, automatise les infrastructures et améliore la fiabilité des déploiements. Ingénieur français basé à Bucarest.",
       cta: {
         contact: "On Discute !",
         experience: "Voir Ce Que J'ai Fait",

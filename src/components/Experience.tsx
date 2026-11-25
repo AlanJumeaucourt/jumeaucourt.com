@@ -113,7 +113,7 @@ const Timeline = () => {
       },
       {
         type: "education",
-        year: "2024 (Fall Semester)",
+        year: "1st semester 2025",
         title: "Erasmus Exchange Semester",
         organization: "Vilnius Tech, Lithuania",
         details: [
@@ -183,7 +183,7 @@ const Timeline = () => {
     fr: [
       {
         type: "experience",
-        year: "Sept 2025 - Aujourd'hui",
+        year: "Oct. 2025 - Aujourd'hui",
         title: "Ingénieur DevOps - Modernisation Cloud",
         organization: "Thales Roumanie",
         details: [
@@ -241,7 +241,7 @@ const Timeline = () => {
       },
       {
         type: "education",
-        year: "2023 (Semestre d'automne)",
+        year: "1er semestre 2025",
         title: "Semestre d'échange Erasmus",
         organization: "Vilnius Tech, Lituanie",
         details: [
